@@ -1,6 +1,8 @@
 #include "Camera.hpp"
 #include "App.hpp"
 
+#include "glm/gtc/matrix_transform.hpp"
+
 Camera::Camera() {
     matrixV = lookAt(vec3(0.0f,0.0f,7.0f), vec3(0.0f,0.0f,0.0f), vec3(0.0f,1.0f,0.0f));
     matrixP = perspective(45.0f, (float)App::getWindowWidth()/(float)App::getWindowHeight(), 1.0f, 100.0f);

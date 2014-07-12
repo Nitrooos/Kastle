@@ -12,7 +12,6 @@ using namespace std;
 enum class ObjectType : char { Teapot };
 
 struct ObjectBuffers {
-        ObjectBuffers();
         ObjectBuffers(const string &filename);
         ObjectBuffers(unique_ptr<ShaderProgram> const& sp, float *vert, float *norm, float *col, int vertCount);
         ~ObjectBuffers();

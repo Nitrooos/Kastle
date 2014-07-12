@@ -1,7 +1,5 @@
 #include "ObjectBuffers.hpp"
 
-ObjectBuffers::ObjectBuffers() { }
-
 ObjectBuffers::ObjectBuffers(const string &filename) {
     loadFromFile(filename);
     setupVBO();
