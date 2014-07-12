@@ -1,6 +1,6 @@
 solution "OpenGL"
 
-    project "Castle2"
+    project "Castle"
         configurations { "debug", "release" }
             language "C++"
             kind "ConsoleApp"
