@@ -1,6 +1,7 @@
 #include "Camera.hpp"
 #include "App.hpp"
 
+#include <iostream>
 #include "glm/gtc/matrix_transform.hpp"
 
 Camera::Camera(float x, float y, float z) : x(x), y(y), z(z) {
@@ -22,6 +23,17 @@ void Camera::roll(float cenX, float cenY, float cenZ) {
     centerY += cenY;
     centerZ += cenZ;
     updateMatrixV();
+}
+
+void Camera::roll(float changeT) {
+    //cout << "centerX: " << centerX << "\tcenterY: " << centerY << "\tcenterZ: " << centerZ << "\n";
+
+    paramT += changeT;
+    centerX = 7*cos(paramT);
+    centerZ = -7*sin(paramT);
+    updateMatrixV();
+
+    //cout << "centerX: " << centerX << "\tcenterY: " << centerY << "\tcenterZ: " << centerZ << "\n";
 }
 
 float Camera::getX() const {

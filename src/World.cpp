@@ -22,10 +22,10 @@ void World::onEvent(Event e) {
                 camera.movEye(0.0f, 0.0f, 0.1f);
                 break;
             case Keyboard::Left:
-                //camera.roll(-0.01f, 0.0f, 0.37f);
+                camera.roll(0.1f);
                 break;
             case Keyboard::Right:
-                //camera.roll(0.01f, 0.0f, 0.37f);
+                camera.roll(-0.1f);
                 break;
             default:
                 break;
