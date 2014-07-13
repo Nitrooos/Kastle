@@ -7,23 +7,26 @@ using namespace glm;
 
 class Camera {
     public:
-        Camera();
+        Camera(float x, float y, float z);
         virtual ~Camera();
 
-        void movEyeX(double mov);       // przesuń oko kamery wzdłuż osi X
-        void movEyeY(double mov);       // przesuń oko kamery wzdłuż osi Y
-        void movEyeZ(double mov);       // przesuń oko kamery wzdłuż osi Z
+        // przesuń oko kamery wzdłuż osi
+        void movEye(float movX, float movY, float movZ);
+        void roll(float cenX, float cenY, float cenZ);
 
-        double getX() const;            // pobierz odpowiednią współrzędną
-        double getY() const;
-        double getZ() const;
+        // pobierz odpowiednią współrzędną
+        float getX() const;
+        float getY() const;
+        float getZ() const;
 
         const mat4& getMatrixV() const;
         const mat4& getMatrixP() const;
     private:
+        void updateMatrixV();
+
         // współrzędne oka kamery oraz punkt widzenia kamery (środek sceny)
-        double x{0.0}, y{0.0}, z{0.0},
-               centerX{0.0}, centerY{5.0}, centerZ{0.0};
+        float x{0.0}, y{0.0}, z{0.0},
+               centerX{0.0}, centerY{0.0}, centerZ{0.0};
         mat4 matrixV, matrixP;
 };
 

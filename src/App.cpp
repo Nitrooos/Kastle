@@ -21,7 +21,7 @@ void App::initSFML() {
     // stwórz okno
     window.create(VideoMode(windowWidth, windowHeight), "OpenGL", Style::Default, ContextSettings(32));
     window.setFramerateLimit(60);
-    window.setVerticalSyncEnabled(true);
+    //window.setVerticalSyncEnabled(true);
 }
 
 void App::initGLEW() {
@@ -46,10 +46,8 @@ void App::onEvent() {
             case Event::KeyPressed:
                 if (event.key.code == Keyboard::Escape) {
                     running = false;
-                }
-                break;
-            default:
-                world->onEvent(event);
+                } else
+                    world->onEvent(event);
                 break;
         }
     }

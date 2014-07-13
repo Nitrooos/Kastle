@@ -1,10 +1,10 @@
 #include "World.hpp"
 
 World::World() {
-    Entity obj(grMananger.getBuffer(ObjectType::Teapot),
-               grMananger.getShader(ObjectType::Teapot), 0, 0, 0);
-    objects.push_back(obj);
-
+    objects.push_back(Entity{grMananger.getBuffer(ObjectType::Teapot),
+                             grMananger.getShader(ObjectType::Teapot), -1, 0, 0});
+    objects.push_back(Entity{grMananger.getBuffer(ObjectType::Teapot),
+                             grMananger.getShader(ObjectType::Teapot),  1, 0, 0});
     onInit();
 }
 
@@ -15,14 +15,30 @@ void World::onEvent(Event e) {
     if (e.type == Event::KeyPressed) {
         // sprawdzamy czy nie trzeba zaktualizować obiektu kamery
         switch (e.key.code) {
-           default:
+            case Keyboard::Up:
+                camera.movEye(0.0f, 0.0f, -0.1f);
+                break;
+            case Keyboard::Down:
+                camera.movEye(0.0f, 0.0f, 0.1f);
+                break;
+            case Keyboard::Left:
+                //camera.roll(-0.01f, 0.0f, 0.37f);
+                break;
+            case Keyboard::Right:
+                //camera.roll(0.01f, 0.0f, 0.37f);
+                break;
+            default:
                 break;
         }
     }
 }
 
 void World::onLoop() {
-    objects.front().roll(1.0f);
+    float angle = 1.0f;
+    for (auto &x : objects) {
+        x.roll(angle);
+        angle *= -1;
+    }
 }
 
 void World::onRender() {

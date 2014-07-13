@@ -27,7 +27,7 @@ class World {
 
         vector<Entity> objects;             // obiekty należące do świata
         GraphicsManager grMananger;         // manager obiektów rysowanych na scenie
-        Camera camera;                      // kamera, przez którą ogląda świat użytkownik
+        Camera camera{0.0, 0.0, 7.0};       // kamera, przez którą ogląda świat użytkownik
 };
 
 #endif /* end of include guard: WORLD */

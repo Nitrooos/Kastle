@@ -3,34 +3,36 @@
 
 #include "glm/gtc/matrix_transform.hpp"
 
-Camera::Camera() {
-    matrixV = lookAt(vec3(0.0f,0.0f,7.0f), vec3(0.0f,0.0f,0.0f), vec3(0.0f,1.0f,0.0f));
+Camera::Camera(float x, float y, float z) : x(x), y(y), z(z) {
+    updateMatrixV();
     matrixP = perspective(45.0f, (float)App::getWindowWidth()/(float)App::getWindowHeight(), 1.0f, 100.0f);
 }
 
 Camera::~Camera() { }
 
-void Camera::movEyeX(double mov) {
-    x += mov;
+void Camera::movEye(float movX, float movY, float movZ) {
+    x += movX;
+    y += movY;
+    z += movZ;
+    updateMatrixV();
 }
 
-void Camera::movEyeY(double mov) {
-    y += mov;
+void Camera::roll(float cenX, float cenY, float cenZ) {
+    centerX += cenX;
+    centerY += cenY;
+    centerZ += cenZ;
+    updateMatrixV();
 }
 
-void Camera::movEyeZ(double mov) {
-    z += mov;
-}
-
-double Camera::getX() const {
+float Camera::getX() const {
     return x;
 }
 
-double Camera::getY() const {
+float Camera::getY() const {
     return y;
 }
 
-double Camera::getZ() const {
+float Camera::getZ() const {
     return z;
 }
 
@@ -40,4 +42,8 @@ const mat4& Camera::getMatrixV() const {
 
 const mat4& Camera::getMatrixP() const {
     return matrixP;
+}
+
+void Camera::updateMatrixV() {
+    matrixV = lookAt(vec3(x, y, z), vec3(centerX, centerY, centerZ), vec3(0.0f,1.0f,0.0f));
 }

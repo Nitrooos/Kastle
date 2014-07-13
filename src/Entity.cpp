@@ -5,7 +5,7 @@
 
 Entity::Entity(ObjectBuffers *ob, ShaderProgram *sp, double x, double y, double z)
     : objectBuffers(ob), shaderProgram(sp), x(x), y(y), z(z) {
-        matrixM = rotate(mat4(1.0f), 0.0f, vec3(0.5f, 1.0f, 0.0f));
+        updateMatrixM();
 }
 
 Entity::~Entity() { }
@@ -35,12 +35,14 @@ void Entity::move(double movX, double movY, double movZ) {
     x += movX;
     y += movY;
     z += movZ;
+    updateMatrixM();
 }
 
 void Entity::setPosition(double x, double y, double z) {
     this->x = x;
     this->y = y;
     this->z = z;
+    updateMatrixM();
 }
 
 void Entity::roll(double rotAngle) {
@@ -54,5 +56,6 @@ void Entity::setAngle(double angle) {
 }
 
 void Entity::updateMatrixM() {
-    matrixM = rotate(mat4(1.0f), angle, vec3(0.5f, 1.0f, 0.0f));
+    matrixM = translate(mat4(1.0f), vec3(x, y, z));
+    matrixM = rotate(matrixM, angle, vec3(0.5f, 1.0f, 0.3f));
 }

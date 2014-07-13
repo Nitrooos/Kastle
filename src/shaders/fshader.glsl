@@ -6,5 +6,5 @@ out vec4 pixelColor; //Zmienna wyjsciowa fragment shadera. Zapisuje sie do niej 
 in vec4 interpolatedColor;
 
 void main(void) {
-    pixelColor= interpolatedColor; //Zapisz jako kolor piksela, kolor bialy
+    pixelColor = interpolatedColor;
 }
