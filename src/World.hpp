@@ -11,8 +11,6 @@ using namespace sf;
 #include "Camera.hpp"
 #include "GraphicsManager.hpp"
 
-#include <memory>
-
 class World {
     public:
         World();

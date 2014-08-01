@@ -22,10 +22,10 @@ void Entity::onRender(const Camera &c) {
     glUniformMatrix4fv(shaderProgram->getUniformLocation("M"), 1, false, value_ptr(matrixM));
 
     // Uaktywnienie VAO i tym samym uaktywnienie predefiniowanych w tym VAO powiązań slotów atrybutów z tablicami z danymi
-    glBindVertexArray(objectBuffers->vao);
+    glBindVertexArray(objectBuffers->getVAO());
 
     // Narysowanie obiektu
-    glDrawArrays(GL_TRIANGLES, 0, objectBuffers->vertexCount);
+    glDrawArrays(GL_TRIANGLES, 0, objectBuffers->getVertexCount());
 
     // Posprzątanie po sobie
     glBindVertexArray(0);

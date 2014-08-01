@@ -1,11 +1,10 @@
 #include "GraphicsManager.hpp"
-#include "Teapot.hpp"
 
 GraphicsManager::ObjectData::ObjectData(ObjectType id) {
     switch (id) {
         case ObjectType::Teapot:
             shader.reset (new ShaderProgram("src/shaders/vshader.glsl", nullptr, "src/shaders/fshader.glsl"));
-            buffers.reset(new ObjectBuffers(shader, teapotVertices, teapotNormals, teapotColors, teapotVertexCount));
+            buffers.reset(new ObjectBuffers(shader, "models/teapot.obj"));
             break;
     }
 }

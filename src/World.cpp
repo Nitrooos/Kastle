@@ -2,9 +2,9 @@
 
 World::World() {
     objects.push_back(Entity{grMananger.getBuffer(ObjectType::Teapot),
-                             grMananger.getShader(ObjectType::Teapot), -1, 0, 0});
+                             grMananger.getShader(ObjectType::Teapot), -2, 0, 0});
     objects.push_back(Entity{grMananger.getBuffer(ObjectType::Teapot),
-                             grMananger.getShader(ObjectType::Teapot),  1, 0, 0});
+                             grMananger.getShader(ObjectType::Teapot),  2, 0, 0});
     onInit();
 }
 

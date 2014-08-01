@@ -115,11 +115,11 @@ void ShaderProgram::use() const {
 }
 
 //Pobierz numer slotu odpowiadaj¹cego zmiennej jednorodnej o nazwie variableName
-GLuint ShaderProgram::getUniformLocation(char* variableName) const {
-    return glGetUniformLocation(shaderProgram,variableName);
+GLuint ShaderProgram::getUniformLocation(const string &variableName) const {
+    return glGetUniformLocation(shaderProgram,variableName.c_str());
 }
 
 //Pobierz numer slotu odpowiadaj¹cego atrybutowi o nazwie variableName
-GLuint ShaderProgram::getAttribLocation(char* variableName) const {
-    return glGetAttribLocation(shaderProgram,variableName);
+GLuint ShaderProgram::getAttribLocation(const string &variableName) const {
+    return glGetAttribLocation(shaderProgram,variableName.c_str());
 }

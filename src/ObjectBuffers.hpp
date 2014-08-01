@@ -6,32 +6,32 @@
 #include <GL/glew.h>
 
 #include "ShaderProgram.hpp"
+#include "OBJLoader.hpp"
 
 using namespace std;
 
 enum class ObjectType : char { Teapot };
 
-struct ObjectBuffers {
-        ObjectBuffers(const string &filename);
-        ObjectBuffers(unique_ptr<ShaderProgram> const& sp, float *vert, float *norm, float *col, int vertCount);
+class ObjectBuffers {
+    public:
+        ObjectBuffers(unique_ptr<ShaderProgram> const& sp, const string &filename);
         ~ObjectBuffers();
 
-        GLuint vao,                     // uchwyt na VAO
-               bufVertices,             // bufory wierzchołków
-               bufNormals,              // wektorów normalnych
-               bufColors;               // kolorów
-
-        float *vertices{nullptr},       // wskaźniki na tablice wierzchołków
-              *normals{nullptr},        // wektorów normalnych
-              *colors{nullptr};         // kolorów
-        int vertexCount{0};
+        GLuint getVAO() const;
+        int getVertexCount() const;
     private:
         void loadFromFile(const string &filename);
         // Funkcje z kodu Witka
         GLuint makeBuffer(void *data, int vertexSize);
         void setupVBO();
         void setupVAO(unique_ptr<ShaderProgram> const& sp);
-        void assignVBOtoAttribute(unique_ptr<ShaderProgram> const& sp, char* attributeName, GLuint bufVBO, int variableSize);
+        void assignVBOtoAttribute(unique_ptr<ShaderProgram> const& sp, const string &attributeName, GLuint bufVBO, int variableSize);
+
+        OBJLoader model;                // dane modelu wczytane z pliku obj
+        GLuint vao,                     // uchwyt na VAO
+               bufVertices,             // bufory wierzchołków
+               bufNormals,              // wektorów normalnych
+               bufColors;               // kolorów
 };
 
 #endif /* end of include guard: OBJECTBUFFERS */
