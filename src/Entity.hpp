@@ -13,7 +13,7 @@ using namespace glm;
 
 class Entity {
     public:
-        Entity(ObjectBuffers *ob, ShaderProgram *sp, double x, double y, double z);
+        Entity(ObjectBuffers *ob, ShaderProgram *sp, double x, double y, double z, GLuint tex0, GLuint tex1 = 0);
         virtual ~Entity();
 
         void onLoop();
@@ -28,6 +28,7 @@ class Entity {
 
         ShaderProgram *shaderProgram;           // pointer do programu cieniującego
         ObjectBuffers *objectBuffers;           // pointer do buforów vbo
+        GLuint tex0{0}, tex1{0};                // tekstury obiektu (można użyć max dwóch)
 
         float x, y, z;                          // wsp obiektu na scenie
         float angle{0.0};                       // kąt obrotu (początkowo 0.0)

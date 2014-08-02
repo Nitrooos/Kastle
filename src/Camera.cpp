@@ -15,6 +15,11 @@ void Camera::movEye(float movX, float movY, float movZ) {
     x += movX;
     y += movY;
     z += movZ;
+
+    centerX += movX;
+    centerY += movY;
+    centerZ += movZ;
+
     updateMatrixV();
 }
 
@@ -23,15 +28,17 @@ void Camera::roll(float cenX, float cenY, float cenZ) {
     centerY += cenY;
     centerZ += cenZ;
     updateMatrixV();
+    updateAlfaAngle();
 }
 
 void Camera::roll(float changeT) {
     //cout << "centerX: " << centerX << "\tcenterY: " << centerY << "\tcenterZ: " << centerZ << "\n";
 
     paramT += changeT;
-    centerX = 7*cos(paramT);
-    centerZ = -7*sin(paramT);
+    centerX = x + 7*cos(paramT);
+    centerZ = z - 7*sin(paramT);
     updateMatrixV();
+    updateAlfaAngle();
 
     //cout << "centerX: " << centerX << "\tcenterY: " << centerY << "\tcenterZ: " << centerZ << "\n";
 }
@@ -48,6 +55,14 @@ float Camera::getZ() const {
     return z;
 }
 
+float Camera::getXShift(float velocity) const {
+    return velocity*sin(alfa);
+}
+
+float Camera::getZShift(float velocity) const {
+    return velocity*cos(alfa);
+}
+
 const mat4& Camera::getMatrixV() const {
     return matrixV;
 }
@@ -58,4 +73,10 @@ const mat4& Camera::getMatrixP() const {
 
 void Camera::updateMatrixV() {
     matrixV = lookAt(vec3(x, y, z), vec3(centerX, centerY, centerZ), vec3(0.0f,1.0f,0.0f));
+}
+
+void Camera::updateAlfaAngle() {
+    float diffX = x - centerX,
+          diffZ = z - centerZ; 
+    alfa = atan2(diffX, diffZ);
 }

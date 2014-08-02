@@ -1,5 +1,4 @@
 #include "ObjectBuffers.hpp"
-#include "Cube.hpp"
 #include "Teapot.hpp"
 
 ObjectBuffers::ObjectBuffers(unique_ptr<ShaderProgram> const& sp, const string &filename)
@@ -11,7 +10,7 @@ ObjectBuffers::ObjectBuffers(unique_ptr<ShaderProgram> const& sp, const string &
 ObjectBuffers::~ObjectBuffers() {
     glDeleteBuffers(1, &bufVertices);
     glDeleteBuffers(1, &bufNormals);
-    glDeleteBuffers(1, &bufColors);
+    glDeleteBuffers(1, &bufTexCoords);
 
     glDeleteVertexArrays(1, &vao);
 }
@@ -25,9 +24,9 @@ int ObjectBuffers::getVertexCount() const {
 }
 
 void ObjectBuffers::setupVBO() {
-    bufVertices = makeBuffer(model.vertices, sizeof(float)*4);   //Współrzędne wierzchołków
-    bufColors   = makeBuffer(teapotColors,   sizeof(float)*4);   //Kolory wierzchołków
-    bufNormals  = makeBuffer(model.normals,  sizeof(float)*4);   //Wektory normalne wierzchołków
+    bufVertices  = makeBuffer(model.vertices, sizeof(float)*4);   //Współrzędne wierzchołków
+    bufTexCoords = makeBuffer(teapotTexCoords,  sizeof(float)*2);   //Współrzędne teksturowania
+    bufNormals   = makeBuffer(model.normals,  sizeof(float)*4);   //Wektory normalne wierzchołków
 }
 
 GLuint ObjectBuffers::makeBuffer(void *data, int vertexSize) {
@@ -47,9 +46,9 @@ void ObjectBuffers::setupVAO(unique_ptr<ShaderProgram> const& sp) {
     // Uaktywnij nowo utworzony VAO
     glBindVertexArray(vao);
 
-    assignVBOtoAttribute(sp, "vertex", bufVertices, 4);
-    assignVBOtoAttribute(sp, "color",  bufColors,   4);
-    assignVBOtoAttribute(sp, "normal", bufNormals,  4);
+    assignVBOtoAttribute(sp, "vertex",   bufVertices,  4);
+    assignVBOtoAttribute(sp, "normal",   bufNormals,   4);
+    assignVBOtoAttribute(sp, "texCoord", bufTexCoords, 2);
 
     // Zakończ modyfikację VAO
     glBindVertexArray(0);

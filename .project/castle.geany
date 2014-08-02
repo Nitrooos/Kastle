@@ -14,7 +14,7 @@ indent_mode=2
 
 [project]
 name=Castle
-base_path=/home/bartosz/Documents/Castle/.project/
+base_path=/home/bartas/Documents/Politechnika/Semestr\ IV/GK/Castle
 description=
 file_patterns=
 
@@ -23,23 +23,22 @@ long_line_behaviour=1
 long_line_column=72
 
 [files]
-current_page=12
+current_page=5
 FILE_NAME_0=550;Lua;0;EUTF-8;0;1;0;%2Fhome%2Fbartosz%2FDocuments%2FCastle%2Fpremake4.lua;0;4
 FILE_NAME_1=1211;C++;0;EUTF-8;0;1;0;%2Fhome%2Fbartosz%2FDocuments%2FCastle%2Fsrc%2FApp.cpp;0;4
 FILE_NAME_2=916;C++;0;EUTF-8;0;1;0;%2Fhome%2Fbartosz%2FDocuments%2FCastle%2Fsrc%2FApp.hpp;0;4
-FILE_NAME_3=663;C++;0;EUTF-8;0;1;0;%2Fhome%2Fbartosz%2FDocuments%2FCastle%2Fsrc%2FCamera.cpp;0;4
-FILE_NAME_4=354;C++;0;EUTF-8;0;1;0;%2Fhome%2Fbartosz%2FDocuments%2FCastle%2Fsrc%2FCamera.hpp;0;4
-FILE_NAME_5=22;C++;0;EUTF-8;0;1;0;%2Fhome%2Fbartosz%2FDocuments%2FCastle%2Fsrc%2FWorld.cpp;0;4
-FILE_NAME_6=677;C++;0;EUTF-8;0;1;0;%2Fhome%2Fbartosz%2FDocuments%2FCastle%2Fsrc%2FWorld.hpp;0;4
-FILE_NAME_7=310;C++;0;EUTF-8;0;1;0;%2Fhome%2Fbartosz%2FDocuments%2FCastle%2Fsrc%2FObjectBuffers.cpp;0;4
-FILE_NAME_8=0;C++;0;EUTF-8;0;1;0;%2Fhome%2Fbartosz%2FDocuments%2FCastle%2Fsrc%2FObjectBuffers.hpp;0;4
-FILE_NAME_9=359;C++;0;EUTF-8;0;1;0;%2Fhome%2Fbartosz%2FDocuments%2FCastle%2Fsrc%2FEntity.cpp;0;4
-FILE_NAME_10=0;C++;0;EUTF-8;0;1;0;%2Fhome%2Fbartosz%2FDocuments%2FCastle%2Fsrc%2FEntity.hpp;0;4
-FILE_NAME_11=234;GLSL;0;EUTF-8;0;1;0;%2Fhome%2Fbartosz%2FDocuments%2FCastle%2Fsrc%2Fshaders%2Ffshader.glsl;0;4
-FILE_NAME_12=396;GLSL;0;EUTF-8;0;1;0;%2Fhome%2Fbartosz%2FDocuments%2FCastle%2Fsrc%2Fshaders%2Fvshader.glsl;0;4
+FILE_NAME_3=904;C++;0;EUTF-8;0;1;0;%2Fhome%2Fbartosz%2FDocuments%2FCastle%2Fsrc%2FWorld.cpp;0;4
+FILE_NAME_4=631;C++;0;EUTF-8;0;1;0;%2Fhome%2Fbartosz%2FDocuments%2FCastle%2Fsrc%2FWorld.hpp;0;4
+FILE_NAME_5=508;C++;0;EUTF-8;0;1;0;%2Fhome%2Fbartosz%2FDocuments%2FCastle%2Fsrc%2FObjectBuffers.cpp;0;4
+FILE_NAME_6=0;C++;0;EUTF-8;0;1;0;%2Fhome%2Fbartosz%2FDocuments%2FCastle%2Fsrc%2FObjectBuffers.hpp;0;4
+FILE_NAME_7=1563;C++;0;EUTF-8;0;1;0;%2Fhome%2Fbartosz%2FDocuments%2FCastle%2Fsrc%2FEntity.cpp;0;4
+FILE_NAME_8=0;C++;0;EUTF-8;0;1;0;%2Fhome%2Fbartosz%2FDocuments%2FCastle%2Fsrc%2FEntity.hpp;0;4
+FILE_NAME_9=2253;C++;0;EUTF-8;0;1;0;%2Fhome%2Fbartas%2FDocuments%2FPolitechnika%2FSemestr%20IV%2FGK%2FLabki%2FZajęcia6%2Fmain_file.cpp;0;4
+FILE_NAME_10=0;None;0;EUTF-8;0;1;0;%2Fhome%2Fbartas%2FDocuments%2FPolitechnika%2FSemestr%20IV%2FGK%2FLabki%2FZajęcia6%2Fshaders%2Ffshader;0;4
+FILE_NAME_11=440;None;0;EUTF-8;0;1;0;%2Fhome%2Fbartas%2FDocuments%2FPolitechnika%2FSemestr%20IV%2FGK%2FLabki%2FZajęcia6%2Fshaders%2Fvshader;0;4
 
 [VTE]
-last_dir=/home/bartosz/Documents/Castle/src/shaders
+last_dir=/home/bartas/Documents/Politechnika/Semestr\ IV/GK/Castle/src
 
 [build-menu]
 NF_00_LB=_Make

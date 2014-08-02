@@ -10,8 +10,6 @@
 
 using namespace std;
 
-enum class ObjectType : char { Teapot };
-
 class ObjectBuffers {
     public:
         ObjectBuffers(unique_ptr<ShaderProgram> const& sp, const string &filename);
@@ -31,7 +29,7 @@ class ObjectBuffers {
         GLuint vao,                     // uchwyt na VAO
                bufVertices,             // bufory wierzchołków
                bufNormals,              // wektorów normalnych
-               bufColors;               // kolorów
+               bufTexCoords;            // współrzędnych teksturowania
 };
 
 #endif /* end of include guard: OBJECTBUFFERS */

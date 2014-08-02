@@ -3,9 +3,9 @@
 #ifndef TGA
 #define TGA
 
-#include <iostream>
 #include <fstream>
 #include <memory.h>
+#include <string>
 
 #define IMG_OK              0x1
 #define IMG_ERR_NO_FILE     0x2
@@ -13,12 +13,14 @@
 #define IMG_ERR_BAD_FORMAT  0x8
 #define IMG_ERR_UNSUPPORTED 0x40
 
+using namespace std;
+
 class TGAImg
 {
 public:
     TGAImg();
     ~TGAImg();
-    int Load(char* szFilename);
+    int Load(const string &szFilename);
     int GetBPP();
     int GetWidth();
     int GetHeight();

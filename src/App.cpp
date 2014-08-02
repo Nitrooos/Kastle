@@ -21,6 +21,7 @@ void App::initSFML() {
     // stwórz okno
     window.create(VideoMode(windowWidth, windowHeight), "OpenGL", Style::Default, ContextSettings(32));
     window.setFramerateLimit(60);
+    window.setKeyRepeatEnabled(false);
     //window.setVerticalSyncEnabled(true);
 }
 
@@ -44,6 +45,7 @@ void App::onEvent() {
                 glViewport(0, 0, event.size.width, event.size.height);
                 break;
             case Event::KeyPressed:
+            case Event::KeyReleased:
                 if (event.key.code == Keyboard::Escape) {
                     running = false;
                 } else

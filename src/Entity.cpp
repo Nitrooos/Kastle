@@ -3,8 +3,8 @@
 #include "glm/gtc/type_ptr.hpp"
 #include "glm/gtc/matrix_transform.hpp"
 
-Entity::Entity(ObjectBuffers *ob, ShaderProgram *sp, double x, double y, double z)
-    : objectBuffers(ob), shaderProgram(sp), x(x), y(y), z(z) {
+Entity::Entity(ObjectBuffers *ob, ShaderProgram *sp, double x, double y, double z, GLuint tex0, GLuint tex1) 
+    : objectBuffers(ob), shaderProgram(sp), x(x), y(y), z(z), tex0(tex0), tex1(tex1) {
         updateMatrixM();
 }
 
@@ -20,6 +20,18 @@ void Entity::onRender(const Camera &c) {
     glUniformMatrix4fv(shaderProgram->getUniformLocation("P"), 1, false, value_ptr(c.getMatrixP()));
     glUniformMatrix4fv(shaderProgram->getUniformLocation("V"), 1, false, value_ptr(c.getMatrixV()));
     glUniformMatrix4fv(shaderProgram->getUniformLocation("M"), 1, false, value_ptr(matrixM));
+
+    glUniform4f(shaderProgram->getUniformLocation("lightPosition"), 0, 0, 5, 1);
+
+    glUniform1i(shaderProgram->getUniformLocation("textureMap0"), 0);
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, tex0);
+
+    if (tex1 != 0) {
+        glUniform1i(shaderProgram->getUniformLocation("textureMap1"), 1);
+        glActiveTexture(GL_TEXTURE1);
+        glBindTexture(GL_TEXTURE_2D, tex1);
+    }
 
     // Uaktywnienie VAO i tym samym uaktywnienie predefiniowanych w tym VAO powiązań slotów atrybutów z tablicami z danymi
     glBindVertexArray(objectBuffers->getVAO());

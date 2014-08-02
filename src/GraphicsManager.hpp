@@ -6,6 +6,9 @@
 #include "ShaderProgram.hpp"
 #include "ObjectBuffers.hpp"
 
+enum class ObjectType  : char { Teapot };
+enum class TextureType : char { Metal, Sky, Brick, Stone };
+
 class GraphicsManager {
     public:
         GraphicsManager();
@@ -13,6 +16,7 @@ class GraphicsManager {
 
         ShaderProgram *getShader(ObjectType id);
         ObjectBuffers *getBuffer(ObjectType id);
+        GLuint getTexture(TextureType id);
     private:
         struct ObjectData {
             ObjectData() { }
@@ -22,8 +26,11 @@ class GraphicsManager {
             unique_ptr<ShaderProgram> shader;
         };
 
+        GLuint readTextureFromFile(const string &filename);
+
         // Dla każdego typu obiektu bufory VBO, program cieniujący i VAO
         map<ObjectType, ObjectData> data;
+        map<TextureType, GLuint> textures;
 };
 
 #endif /* end of include guard: GRAPHICSMANAGER */

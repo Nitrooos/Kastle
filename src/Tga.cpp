@@ -30,7 +30,7 @@ TGAImg::~TGAImg()
 }
 
 
-int TGAImg::Load(char* szFilename)
+int TGAImg::Load(const string &szFilename)
 {
     using namespace std;
     ifstream fIn;
