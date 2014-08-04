@@ -21,6 +21,8 @@ void Camera::movEye(float movX, float movY, float movZ) {
     centerZ += movZ;
 
     updateMatrixV();
+
+    //cout << "x: " << x << "\ty: " << y << "\tz: " << z << "\n";
 }
 
 void Camera::roll(float cenX, float cenY, float cenZ) {
@@ -31,12 +33,16 @@ void Camera::roll(float cenX, float cenY, float cenZ) {
     updateAlfaAngle();
 }
 
-void Camera::roll(float changeT) {
+void Camera::roll(float changeLeftRight, float changeUpDown) {
     //cout << "centerX: " << centerX << "\tcenterY: " << centerY << "\tcenterZ: " << centerZ << "\n";
 
-    paramT += changeT;
-    centerX = x + 7*cos(paramT);
-    centerZ = z - 7*sin(paramT);
+    paramTLeftRight += changeLeftRight;
+    paramTUpDown += changeUpDown;
+
+    centerX = x + 7*cos(paramTLeftRight)*cos(paramTUpDown);
+    centerY = y + 7*sin(paramTUpDown);
+    centerZ = z - 7*sin(paramTLeftRight)*cos(paramTUpDown);
+
     updateMatrixV();
     updateAlfaAngle();
 

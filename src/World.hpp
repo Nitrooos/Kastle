@@ -16,7 +16,8 @@ class World {
         World();
         virtual ~World();
 
-        void onEvent(Event e);
+        void onKeyboardEvent(Event e);
+        void onMouseEvent(const Vector2<int> &pos);
         void onLoop();
         void onRender();
     private:
@@ -28,9 +29,9 @@ class World {
         Camera camera{0.0, 0.0, 7.0};           // kamera, przez którą ogląda świat użytkownik
 
         static constexpr float 
-                         sensitivity = 0.05f;   // jednostka zmiany położenia kamery
-        float roll{0.0},                        // o jaki kąt ma się obrócić kamera przy następnej iteracji onLoop?
-              go{0.0},                          // o ile przesunąć kamerę w następnej iteracji onLoop (bliżej, dalej)
+                         sensitivity = 0.08f;   // jednostka zmiany położenia kamery
+        float go{0.0},                          // o ile przesunąć kamerę w następnej iteracji onLoop (bliżej, dalej)
+              side{0.0},                        // o ile przesunąć kamerę w następnej iteracji onLoop (w lewo, w prawo)
               height{0.0};                      // o ile przesunąć kamerę w następnej iteracji onLoop (wyżej, niżej)
 };
 

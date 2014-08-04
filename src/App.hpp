@@ -16,8 +16,12 @@ class App {
 
         void onExecute();
 
-        static constexpr int getWindowWidth()  { return windowWidth;  }
-        static constexpr int getWindowHeight() { return windowHeight; }
+        static constexpr int getWindowWidth()   { return windowWidth;   }
+        static constexpr int getWindowHeight()  { return windowHeight;  }
+
+        static Vector2<int>  getWindowCenter()  { return Vector2<int>{windowWidth/2, windowHeight/2}; }
+        static constexpr int getWindowCenterX() { return windowWidth/2; }
+        static constexpr int getWindowCenterY() { return windowHeight/2;}
     private:
         void initSFML();               // inicjalizacja biblioteki od okienka SFML
         void initGLEW();               // inicjalizacja biblioteki GLEW

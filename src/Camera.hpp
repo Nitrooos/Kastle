@@ -15,7 +15,7 @@ class Camera {
         // przesuń oko kamery wzdłuż osi
         void movEye(float movX, float movY, float movZ);
         void roll(float cenX, float cenY, float cenZ);
-        void roll(float changeT);
+        void roll(float changeLeftRight, float changeUpDown);
 
         // pobierz odpowiednią współrzędną
         float getX() const;
@@ -35,7 +35,8 @@ class Camera {
         // współrzędne oka kamery oraz punkt widzenia kamery (środek sceny)
         float x{0.0}, y{0.0}, z{0.0},
                centerX{0.0}, centerY{0.0}, centerZ{0.0},
-               paramT{M_PI_2};
+               paramTLeftRight{M_PI_2},
+               paramTUpDown{0.0};
         float alfa{0.0};
         mat4 matrixV, matrixP;
 };

@@ -22,7 +22,9 @@ void App::initSFML() {
     window.create(VideoMode(windowWidth, windowHeight), "OpenGL", Style::Default, ContextSettings(32));
     window.setFramerateLimit(60);
     window.setKeyRepeatEnabled(false);
-    //window.setVerticalSyncEnabled(true);
+    window.setMouseCursorVisible(false);
+
+    Mouse::setPosition(getWindowCenter(), window);
 }
 
 void App::initGLEW() {
@@ -49,7 +51,14 @@ void App::onEvent() {
                 if (event.key.code == Keyboard::Escape) {
                     running = false;
                 } else
-                    world->onEvent(event);
+                    world->onKeyboardEvent(event);
+                break;
+            case Event::MouseLeft: 
+            case Event::MouseMoved:
+                if (Mouse::getPosition(window) != getWindowCenter()) {
+                    world->onMouseEvent(Mouse::getPosition(window));
+                    Mouse::setPosition(getWindowCenter(), window);
+                }
                 break;
         }
     }
