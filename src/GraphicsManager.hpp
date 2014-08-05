@@ -6,8 +6,8 @@
 #include "ShaderProgram.hpp"
 #include "ObjectBuffers.hpp"
 
-enum class ObjectType  : char { Teapot };
-enum class TextureType : char { Metal, Sky, Brick, Stone };
+enum class ObjectType  : char { Teapot, Tree, Hall };
+enum class TextureType : char { Metal, Sky, Brick, Stone, Purple };
 
 class GraphicsManager {
     public:

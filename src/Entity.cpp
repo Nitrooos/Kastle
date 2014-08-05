@@ -21,7 +21,7 @@ void Entity::onRender(const Camera &c) {
     glUniformMatrix4fv(shaderProgram->getUniformLocation("V"), 1, false, value_ptr(c.getMatrixV()));
     glUniformMatrix4fv(shaderProgram->getUniformLocation("M"), 1, false, value_ptr(matrixM));
 
-    glUniform4f(shaderProgram->getUniformLocation("lightPosition"), 0, 0, 5, 1);
+    glUniform4f(shaderProgram->getUniformLocation("lightPosition"), 0, 5, 5, 1);
 
     glUniform1i(shaderProgram->getUniformLocation("textureMap0"), 0);
     glActiveTexture(GL_TEXTURE0);
@@ -69,5 +69,5 @@ void Entity::setAngle(double angle) {
 
 void Entity::updateMatrixM() {
     matrixM = translate(mat4(1.0f), vec3(x, y, z));
-    matrixM = rotate(matrixM, angle, vec3(0.5f, 1.0f, 0.3f));
+    matrixM = rotate(matrixM, angle, vec3(0.0f, 1.0f, 0.0f));
 }

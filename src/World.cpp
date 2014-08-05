@@ -2,7 +2,7 @@
 #include "App.hpp"
 
 World::World() {
-    objects.push_back(Entity{grMananger.getBuffer(ObjectType::Teapot),
+    /*objects.push_back(Entity{grMananger.getBuffer(ObjectType::Teapot),
                              grMananger.getShader(ObjectType::Teapot),
                              -2, 0, 0,
                              grMananger.getTexture(TextureType::Metal),
@@ -12,6 +12,12 @@ World::World() {
                              grMananger.getShader(ObjectType::Teapot),
                              2, 0, 0,
                              grMananger.getTexture(TextureType::Metal),
+                             grMananger.getTexture(TextureType::Stone)}
+                     );*/
+    objects.push_back(Entity{grMananger.getBuffer(ObjectType::Hall),
+                             grMananger.getShader(ObjectType::Hall),
+                             0, 0, 5,
+                             grMananger.getTexture(TextureType::Purple),
                              grMananger.getTexture(TextureType::Stone)}
                      );
     onInit();
@@ -50,16 +56,18 @@ void World::onMouseEvent(const Vector2<int> &pos) {
 }
 
 void World::onLoop() {
-    float angle = 1.0f;
+    /*float angle = 1.0f;
     for (auto &x : objects) {
         x.roll(angle);
         angle *= -1;
-    }
+    }*/
 
     if (this->go != 0.0f || this->height != 0.0f)
         camera.movEye(camera.getXShift(this->go), this->height, camera.getZShift(this->go));
     if (this->side != 0.0f)
         camera.movEye(-camera.getZShift(this->side), 0, camera.getXShift(this->side));
+
+    camera.writeCoordinates();
 }
 
 void World::onRender() {

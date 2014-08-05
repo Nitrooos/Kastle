@@ -9,16 +9,26 @@ GraphicsManager::ObjectData::ObjectData(ObjectType id) {
             shader.reset (new ShaderProgram("src/shaders/vshader.glsl", nullptr, "src/shaders/fshader.glsl"));
             buffers.reset(new ObjectBuffers(shader, "models/teapot.obj"));
             break;
+        case ObjectType::Tree:
+            shader.reset (new ShaderProgram("src/shaders/vshader.glsl", nullptr, "src/shaders/fshader.glsl"));
+            buffers.reset(new ObjectBuffers(shader, "models/drzewoMale.obj"));
+            break;
+        case ObjectType::Hall:
+            shader.reset (new ShaderProgram("src/shaders/vshader.glsl", nullptr, "src/shaders/fshader.glsl"));
+            buffers.reset(new ObjectBuffers(shader, "models/salaBig.obj"));
     }
 }
 
 GraphicsManager::GraphicsManager() {
     data.emplace(ObjectType::Teapot, ObjectData(ObjectType::Teapot));
+    data.emplace(ObjectType::Tree,   ObjectData(ObjectType::Tree));
+    data.emplace(ObjectType::Hall,   ObjectData(ObjectType::Hall));
 
     textures.emplace(TextureType::Metal, readTextureFromFile("data/textures/metal.tga"));
     textures.emplace(TextureType::Brick, readTextureFromFile("data/textures/bricks.tga"));
     textures.emplace(TextureType::Sky,   readTextureFromFile("data/textures/sky.tga"));
     textures.emplace(TextureType::Stone, readTextureFromFile("data/textures/stones.tga"));
+    textures.emplace(TextureType::Purple,readTextureFromFile("data/textures/purple2.tga"));
 }
 
 GraphicsManager::~GraphicsManager() {
