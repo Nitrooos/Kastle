@@ -7,7 +7,7 @@ GraphicsManager::ObjectData::ObjectData(ObjectType id) {
     switch (id) {
         case ObjectType::Teapot:
             shader.reset (new ShaderProgram("src/shaders/vshader.glsl", nullptr, "src/shaders/fshader.glsl"));
-            buffers.reset(new ObjectBuffers(shader, "models/box4.obj"));
+            buffers.reset(new ObjectBuffers(shader, "models/teapot.obj"));
             break;
     }
 }
