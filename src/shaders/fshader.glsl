@@ -19,7 +19,8 @@ void main(void) {
     vec4 Ld=vec4(1,1,1,1);                  //Kolor swiatla rozpraszanego
 
     //Kolor materialu dla swiatla rozpraszanego
-    vec4 Md=(3*texture(textureMap0, iTexCoord) + texture(textureMap1, iTexCoord2))/4;
+    //vec4 Md=(3*texture(textureMap0, iTexCoord) + texture(textureMap1, iTexCoord2))/4;
+    vec4 Md=texture(textureMap0, iTexCoord);
 
     vec4 Ls=vec4(1,1,1,1);                  //Kolor swiatla odbijanego
     vec4 Ms=vec4(1,1,1,1);                  //Kolor materialu dla swiatla odbijanego

@@ -35,6 +35,7 @@ void World::onKeyboardEvent(Event e) {
                 case Keyboard::D: side   =  sensitivity; break;
                 case Keyboard::K: height =  sensitivity; break;
                 case Keyboard::M: height = -sensitivity; break;
+                case Keyboard::X: rotateObjects = !rotateObjects; break;
             }
             break;
         case Event::KeyReleased:
@@ -55,11 +56,13 @@ void World::onMouseEvent(const Vector2<int> &pos) {
 }
 
 void World::onLoop() {
-    /*float angle = 1.0f;
-    for (auto &x : objects) {
-        x.roll(angle);
-        angle *= -1;
-    }*/
+    if (this->rotateObjects) {
+        float angle = 0.1f;
+        for (auto &x : objects) {
+            x.roll(angle);
+            angle *= -1;
+        }
+    }
 
     if (this->go != 0.0f || this->height != 0.0f)
         camera.movEye(-camera.getZShift(this->go), this->height, camera.getXShift(this->go));

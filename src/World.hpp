@@ -33,6 +33,8 @@ class World {
         float go{0.0},                          // o ile przesunąć kamerę w następnej iteracji onLoop (bliżej, dalej)
               side{0.0},                        // o ile przesunąć kamerę w następnej iteracji onLoop (w lewo, w prawo)
               height{0.0};                      // o ile przesunąć kamerę w następnej iteracji onLoop (wyżej, niżej)
+
+        bool rotateObjects{false};              // czy włączyć obracanie obiektów?
 };
 
 #endif /* end of include guard: WORLD */
