@@ -2,6 +2,7 @@
 #include "App.hpp"
 
 #include <iostream>
+#include <iomanip>
 #include "glm/gtc/matrix_transform.hpp"
 
 Camera::Camera(float x, float y, float z) : x(x), y(y), z(z) {
@@ -75,6 +76,10 @@ const mat4& Camera::getMatrixV() const {
 
 const mat4& Camera::getMatrixP() const {
     return matrixP;
+}
+
+void Camera::writeCoordinates() const {
+    cout << fixed << setw(15) << "\rx: " << x << "  y: " << y << "  z: " << z << flush;
 }
 
 void Camera::updateMatrixV() {

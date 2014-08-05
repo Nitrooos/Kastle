@@ -28,6 +28,8 @@ class Camera {
 
         const mat4& getMatrixV() const;
         const mat4& getMatrixP() const;
+
+        void writeCoordinates() const;
     private:
         void updateMatrixV();
         void updateAlfaAngle();
