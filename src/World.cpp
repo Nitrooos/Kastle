@@ -17,8 +17,7 @@ World::World() {
     objects.push_back(Entity{grMananger.getBuffer(ObjectType::Hall),
                              grMananger.getShader(ObjectType::Hall),
                              0, 0, 5,
-                             grMananger.getTexture(TextureType::Purple),
-                             grMananger.getTexture(TextureType::Stone)}
+                             grMananger.getTexture(TextureType::Purple)}
                      );
     onInit();
 }
@@ -32,8 +31,8 @@ void World::onKeyboardEvent(Event e) {
             switch (e.key.code) {
                 case Keyboard::W: go     = -sensitivity; break;
                 case Keyboard::S: go     =  sensitivity; break;
-                case Keyboard::A: side   =  sensitivity; break;
-                case Keyboard::D: side   = -sensitivity; break;
+                case Keyboard::A: side   = -sensitivity; break;
+                case Keyboard::D: side   =  sensitivity; break;
                 case Keyboard::K: height =  sensitivity; break;
                 case Keyboard::M: height = -sensitivity; break;
             }
@@ -63,9 +62,9 @@ void World::onLoop() {
     }*/
 
     if (this->go != 0.0f || this->height != 0.0f)
-        camera.movEye(camera.getXShift(this->go), this->height, camera.getZShift(this->go));
+        camera.movEye(-camera.getZShift(this->go), this->height, camera.getXShift(this->go));
     if (this->side != 0.0f)
-        camera.movEye(-camera.getZShift(this->side), 0, camera.getXShift(this->side));
+        camera.movEye(camera.getXShift(this->side), 0, camera.getZShift(this->side));
 
     camera.writeCoordinates();
 }
