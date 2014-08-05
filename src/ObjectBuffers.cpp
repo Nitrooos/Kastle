@@ -25,7 +25,7 @@ int ObjectBuffers::getVertexCount() const {
 
 void ObjectBuffers::setupVBO() {
     bufVertices  = makeBuffer(model.vertices, sizeof(float)*4);   //Współrzędne wierzchołków
-    bufTexCoords = makeBuffer(teapotTexCoords,  sizeof(float)*2);   //Współrzędne teksturowania
+    bufTexCoords = makeBuffer(model.texture,  sizeof(float)*2);   //Współrzędne teksturowania
     bufNormals   = makeBuffer(model.normals,  sizeof(float)*4);   //Wektory normalne wierzchołków
 }
 

@@ -47,7 +47,7 @@ void znajdzFloat(string ciag, int j, float *tablica) {
     tablica[j+2]=e;
 }
 
-void znajdzFaces(float *verticesObj, float *normalsObj, float *textureObj, float *vertices, float *normals, float *texture, string ciag, int l) {
+void znajdzFaces(float *verticesObj, float *normalsObj, float *textureObj, float *vertices, float *normals, float *texture, string ciag, int l, int t) {
     int i = 2, c, d, e;                 //c=vertices,d=textcoords,e=normals
     for (int j = 0; j < 3; j++) {
         c = znajdzLiczbe(ciag, i, '/');
@@ -69,10 +69,9 @@ void znajdzFaces(float *verticesObj, float *normalsObj, float *textureObj, float
         vertices[l+2]=verticesObj[c+2];
         vertices[l+3]=1.0;
 
-        texture[l]=textureObj[d];
-        texture[l+1]=textureObj[d+1];
-        texture[l+2]=textureObj[d+2];
-        texture[l+3]=1.0;
+        texture[t]=textureObj[d];
+        texture[t+1]=textureObj[d+1];
+        //texture[t+2]=textureObj[d+2];
 
         normals[l]=normalsObj[e];
         normals[l+1]=normalsObj[e+1];
@@ -80,6 +79,7 @@ void znajdzFaces(float *verticesObj, float *normalsObj, float *textureObj, float
         normals[l+3]=0.0;
 
         l+=4;
+        t+=2;
     }
 }
 
@@ -149,9 +149,9 @@ void OBJLoader::load() {
         
         vertices = new float[facesCount*4*3];
         normals = new float[facesCount*4*3];
-        texture = new float[facesCount*4*3];
+        texture = new float[facesCount*3*3];
         
-        int i = 0, j = 0, k = 0, l = 0;
+        int i = 0, j = 0, k = 0, l = 0, t = 0;
 
         while ( true ) {
             if ( plik.good() ) {
@@ -170,8 +170,9 @@ void OBJLoader::load() {
                     k += 3;
                 }
                 if (a[0]=='f' && a[1]==' ') {
-                    znajdzFaces(verticesObj, normalsObj, textureObj, vertices, normals, texture, a, l);
+                    znajdzFaces(verticesObj, normalsObj, textureObj, vertices, normals, texture, a, l, t);
                     l += 12;
+                    t += 6;
                 }
             } else break;
         }
