@@ -7,13 +7,12 @@ World::World() {
                              -2, 0, 0,
                              grMananger.getTexture(TextureType::Metal),
                              grMananger.getTexture(TextureType::Sky)}
-                     );
+                     );*/
     objects.push_back(Entity{grMananger.getBuffer(ObjectType::Teapot),
                              grMananger.getShader(ObjectType::Teapot),
-                             2, 0, 0,
-                             grMananger.getTexture(TextureType::Metal),
-                             grMananger.getTexture(TextureType::Stone)}
-                     );*/
+                             0, 0, 5,
+                             grMananger.getTexture(TextureType::Metal)}
+                     );
     objects.push_back(Entity{grMananger.getBuffer(ObjectType::Hall),
                              grMananger.getShader(ObjectType::Hall),
                              0, 0, 5,

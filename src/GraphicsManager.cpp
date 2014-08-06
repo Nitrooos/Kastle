@@ -7,7 +7,7 @@ GraphicsManager::ObjectData::ObjectData(ObjectType id) {
     switch (id) {
         case ObjectType::Teapot:
             shader.reset (new ShaderProgram("src/shaders/vshader.glsl", nullptr, "src/shaders/fshader.glsl"));
-            buffers.reset(new ObjectBuffers(shader, "models/teapot.obj"));
+            buffers.reset(new ObjectBuffers(shader, "models/czerwone.obj"));
             break;
         case ObjectType::Tree:
             shader.reset (new ShaderProgram("src/shaders/vshader.glsl", nullptr, "src/shaders/fshader.glsl"));
@@ -15,7 +15,7 @@ GraphicsManager::ObjectData::ObjectData(ObjectType id) {
             break;
         case ObjectType::Hall:
             shader.reset (new ShaderProgram("src/shaders/vshader.glsl", nullptr, "src/shaders/fshader.glsl"));
-            buffers.reset(new ObjectBuffers(shader, "models/salaBig.obj"));
+            buffers.reset(new ObjectBuffers(shader, "models/niebieskie.obj"));
     }
 }
 
@@ -24,7 +24,7 @@ GraphicsManager::GraphicsManager() {
     data.emplace(ObjectType::Tree,   ObjectData(ObjectType::Tree));
     data.emplace(ObjectType::Hall,   ObjectData(ObjectType::Hall));
 
-    textures.emplace(TextureType::Metal, readTextureFromFile("data/textures/metal.tga"));
+    textures.emplace(TextureType::Metal, readTextureFromFile("data/textures/red.tga"));
     textures.emplace(TextureType::Brick, readTextureFromFile("data/textures/bricks.tga"));
     textures.emplace(TextureType::Sky,   readTextureFromFile("data/textures/sky.tga"));
     textures.emplace(TextureType::Stone, readTextureFromFile("data/textures/stones.tga"));
