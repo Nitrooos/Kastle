@@ -28,6 +28,31 @@ World::World() {
                              0, 0, 5,
                              grMananger.getTexture(TextureType::Purple)}
                      );
+    objects.push_back(Entity{grMananger.getBuffer(ObjectType::Okna),
+                             grMananger.getShader(ObjectType::Okna),
+                             0, 0, 5,
+                             grMananger.getTexture(TextureType::Red)}
+                     );
+    objects.push_back(Entity{grMananger.getBuffer(ObjectType::MebleNieb),
+                             grMananger.getShader(ObjectType::MebleNieb),
+                             0, 0, 5,
+                             grMananger.getTexture(TextureType::Purple)}
+                     );
+    objects.push_back(Entity{grMananger.getBuffer(ObjectType::MebleDrew),
+                             grMananger.getShader(ObjectType::MebleDrew),
+                             0, 0, 5,
+                             grMananger.getTexture(TextureType::Wood)}
+                     );
+    objects.push_back(Entity{grMananger.getBuffer(ObjectType::MebleCzer),
+                             grMananger.getShader(ObjectType::MebleCzer),
+                             0, 0, 5,
+                             grMananger.getTexture(TextureType::Red)}
+                     );
+    objects.push_back(Entity{grMananger.getBuffer(ObjectType::MebleBiale),
+                             grMananger.getShader(ObjectType::MebleBiale),
+                             0, 0, 5,
+                             grMananger.getTexture(TextureType::White)}
+                     );
     onInit();
 }
 

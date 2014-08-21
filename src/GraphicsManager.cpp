@@ -21,6 +21,26 @@ GraphicsManager::ObjectData::ObjectData(ObjectType id) {
             shader.reset (new ShaderProgram("src/shaders/vshader.glsl", nullptr, "src/shaders/fshader.glsl"));
             buffers.reset(new ObjectBuffers(shader, "models/ScianySufitPodloga.obj"));
             break;
+        case ObjectType::Okna:
+            shader.reset (new ShaderProgram("src/shaders/vshader.glsl", nullptr, "src/shaders/fshader.glsl"));
+            buffers.reset(new ObjectBuffers(shader, "models/okna.obj"));
+            break;
+        case ObjectType::MebleNieb:
+            shader.reset (new ShaderProgram("src/shaders/vshader.glsl", nullptr, "src/shaders/fshader.glsl"));
+            buffers.reset(new ObjectBuffers(shader, "models/mebleNieb.obj"));
+            break;
+        case ObjectType::MebleDrew:
+            shader.reset (new ShaderProgram("src/shaders/vshader.glsl", nullptr, "src/shaders/fshader.glsl"));
+            buffers.reset(new ObjectBuffers(shader, "models/mebleDrew.obj"));
+            break;
+        case ObjectType::MebleCzer:
+            shader.reset (new ShaderProgram("src/shaders/vshader.glsl", nullptr, "src/shaders/fshader.glsl"));
+            buffers.reset(new ObjectBuffers(shader, "models/mebleCzer.obj"));
+            break;
+        case ObjectType::MebleBiale:
+            shader.reset (new ShaderProgram("src/shaders/vshader.glsl", nullptr, "src/shaders/fshader.glsl"));
+            buffers.reset(new ObjectBuffers(shader, "models/mebleBiale.obj"));
+            break;
     }
 }
 
@@ -29,13 +49,16 @@ GraphicsManager::GraphicsManager() {
     data.emplace(ObjectType::PokojeKolumny,   ObjectData(ObjectType::PokojeKolumny));
     data.emplace(ObjectType::salaTronowa,   ObjectData(ObjectType::salaTronowa));
     data.emplace(ObjectType::ScianySufitPodloga,   ObjectData(ObjectType::ScianySufitPodloga));
+    data.emplace(ObjectType::Okna,   ObjectData(ObjectType::Okna));
+    data.emplace(ObjectType::MebleNieb,   ObjectData(ObjectType::MebleNieb));
+    data.emplace(ObjectType::MebleDrew,   ObjectData(ObjectType::MebleDrew));
+    data.emplace(ObjectType::MebleCzer,   ObjectData(ObjectType::MebleCzer));
+    data.emplace(ObjectType::MebleBiale,   ObjectData(ObjectType::MebleBiale));
 
-    textures.emplace(TextureType::Metal, readTextureFromFile("data/textures/metal.tga"));
-    textures.emplace(TextureType::Brick, readTextureFromFile("data/textures/bricks.tga"));
-    textures.emplace(TextureType::Sky,   readTextureFromFile("data/textures/sky.tga"));
-    textures.emplace(TextureType::Stone, readTextureFromFile("data/textures/stones.tga"));
     textures.emplace(TextureType::Purple,readTextureFromFile("data/textures/purple.tga"));
     textures.emplace(TextureType::Red, readTextureFromFile("data/textures/red.tga"));
+    textures.emplace(TextureType::White, readTextureFromFile("data/textures/white.tga"));
+    textures.emplace(TextureType::Wood, readTextureFromFile("data/textures/wood.tga"));
 }
 
 GraphicsManager::~GraphicsManager() {
