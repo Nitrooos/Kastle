@@ -8,13 +8,23 @@ World::World() {
                              grMananger.getTexture(TextureType::Metal),
                              grMananger.getTexture(TextureType::Sky)}
                      );*/
-    objects.push_back(Entity{grMananger.getBuffer(ObjectType::Teapot),
-                             grMananger.getShader(ObjectType::Teapot),
+    objects.push_back(Entity{grMananger.getBuffer(ObjectType::Red),
+                             grMananger.getShader(ObjectType::Red),
                              0, 0, 5,
-                             grMananger.getTexture(TextureType::Metal)}
+                             grMananger.getTexture(TextureType::Red)}
                      );
-    objects.push_back(Entity{grMananger.getBuffer(ObjectType::Hall),
-                             grMananger.getShader(ObjectType::Hall),
+    objects.push_back(Entity{grMananger.getBuffer(ObjectType::PokojeKolumny),
+                             grMananger.getShader(ObjectType::PokojeKolumny),
+                             0, 0, 5,
+                             grMananger.getTexture(TextureType::Purple)}
+                     );
+    objects.push_back(Entity{grMananger.getBuffer(ObjectType::salaTronowa),
+                             grMananger.getShader(ObjectType::salaTronowa),
+                             0, 0, 5,
+                             grMananger.getTexture(TextureType::Purple)}
+                     );
+    objects.push_back(Entity{grMananger.getBuffer(ObjectType::ScianySufitPodloga),
+                             grMananger.getShader(ObjectType::ScianySufitPodloga),
                              0, 0, 5,
                              grMananger.getTexture(TextureType::Purple)}
                      );
