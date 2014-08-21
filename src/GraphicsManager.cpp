@@ -3,66 +3,33 @@
 
 #include <iostream>
 
-GraphicsManager::ObjectData::ObjectData(ObjectType id) {
-    switch (id) {
-        case ObjectType::Red:
-            shader.reset (new ShaderProgram("src/shaders/vshader.glsl", nullptr, "src/shaders/fshader.glsl"));
-            buffers.reset(new ObjectBuffers(shader, "models/teapot.obj"));
-            break;
-        case ObjectType::PokojeKolumny:
-            shader.reset (new ShaderProgram("src/shaders/vshader.glsl", nullptr, "src/shaders/fshader.glsl"));
-            buffers.reset(new ObjectBuffers(shader, "models/PokojeKolumny.obj"));
-            break;
-        case ObjectType::salaTronowa:
-            shader.reset (new ShaderProgram("src/shaders/vshader.glsl", nullptr, "src/shaders/fshader.glsl"));
-            buffers.reset(new ObjectBuffers(shader, "models/niebieskie.obj"));
-            break;
-        case ObjectType::Decorations:
-            shader.reset (new ShaderProgram("src/shaders/vshader.glsl", nullptr, "src/shaders/fshader.glsl"));
-            buffers.reset(new ObjectBuffers(shader, "models/salaTronowa.obj"));
-            break;
-        case ObjectType::ScianySufitPodloga:
-            shader.reset (new ShaderProgram("src/shaders/vshader.glsl", nullptr, "src/shaders/fshader.glsl"));
-            buffers.reset(new ObjectBuffers(shader, "models/ScianySufitPodloga.obj"));
-            break;
-        case ObjectType::Okna:
-            shader.reset (new ShaderProgram("src/shaders/vshader.glsl", nullptr, "src/shaders/fshader.glsl"));
-            buffers.reset(new ObjectBuffers(shader, "models/okna.obj"));
-            break;
-        case ObjectType::MebleNieb:
-            shader.reset (new ShaderProgram("src/shaders/vshader.glsl", nullptr, "src/shaders/fshader.glsl"));
-            buffers.reset(new ObjectBuffers(shader, "models/mebleNieb.obj"));
-            break;
-        case ObjectType::MebleDrew:
-            shader.reset (new ShaderProgram("src/shaders/vshader.glsl", nullptr, "src/shaders/fshader.glsl"));
-            buffers.reset(new ObjectBuffers(shader, "models/mebleDrew.obj"));
-            break;
-        case ObjectType::MebleCzer:
-            shader.reset (new ShaderProgram("src/shaders/vshader.glsl", nullptr, "src/shaders/fshader.glsl"));
-            buffers.reset(new ObjectBuffers(shader, "models/mebleCzer.obj"));
-            break;
-        case ObjectType::MebleBiale:
-            shader.reset (new ShaderProgram("src/shaders/vshader.glsl", nullptr, "src/shaders/fshader.glsl"));
-            buffers.reset(new ObjectBuffers(shader, "models/mebleBiale.obj"));
-            break;
-    }
-}
-
 GraphicsManager::GraphicsManager() {
-    data.emplace(ObjectType::Red, ObjectData(ObjectType::Red));
-    data.emplace(ObjectType::PokojeKolumny,   ObjectData(ObjectType::PokojeKolumny));
-    data.emplace(ObjectType::salaTronowa,   ObjectData(ObjectType::salaTronowa));
-    data.emplace(ObjectType::ScianySufitPodloga,   ObjectData(ObjectType::ScianySufitPodloga));
-    data.emplace(ObjectType::Okna,   ObjectData(ObjectType::Okna));
-    data.emplace(ObjectType::MebleNieb,   ObjectData(ObjectType::MebleNieb));
-    data.emplace(ObjectType::MebleDrew,   ObjectData(ObjectType::MebleDrew));
-    data.emplace(ObjectType::MebleCzer,   ObjectData(ObjectType::MebleCzer));
-    data.emplace(ObjectType::MebleBiale,   ObjectData(ObjectType::MebleBiale));
+    shaders.emplace(ShaderType::Standard,
+                    unique_ptr<ShaderProgram> (new ShaderProgram("src/shaders/vshader.glsl", nullptr, "src/shaders/fshader.glsl")));
+    
+    objects.emplace(ObjectType::Red,
+                    unique_ptr<ObjectBuffers> (new ObjectBuffers(shaders[ShaderType::Standard], "models/czerwone.obj")));
+    objects.emplace(ObjectType::PokojeKolumny,
+                    unique_ptr<ObjectBuffers> (new ObjectBuffers(shaders[ShaderType::Standard], "models/PokojeKolumny.obj")));
+    objects.emplace(ObjectType::salaTronowa,
+                    unique_ptr<ObjectBuffers> (new ObjectBuffers(shaders[ShaderType::Standard], "models/salaTronowa.obj")));
+    objects.emplace(ObjectType::ScianySufitPodloga,
+                    unique_ptr<ObjectBuffers> (new ObjectBuffers(shaders[ShaderType::Standard], "models/ScianySufitPodloga.obj")));
+    objects.emplace(ObjectType::Okna,
+                    unique_ptr<ObjectBuffers> (new ObjectBuffers(shaders[ShaderType::Standard], "models/okna.obj")));
+    objects.emplace(ObjectType::MebleNieb,
+                    unique_ptr<ObjectBuffers> (new ObjectBuffers(shaders[ShaderType::Standard], "models/mebleNieb.obj")));
+    objects.emplace(ObjectType::MebleDrew,
+                    unique_ptr<ObjectBuffers> (new ObjectBuffers(shaders[ShaderType::Standard], "models/mebleDrew.obj")));
+    objects.emplace(ObjectType::MebleCzer,
+                    unique_ptr<ObjectBuffers> (new ObjectBuffers(shaders[ShaderType::Standard], "models/mebleCzer.obj")));
+    objects.emplace(ObjectType::MebleBiale,
+                    unique_ptr<ObjectBuffers> (new ObjectBuffers(shaders[ShaderType::Standard], "models/mebleBiale.obj")));
 
     textures.emplace(TextureType::Purple,readTextureFromFile("data/textures/purple.tga"));
-    textures.emplace(TextureType::Red, readTextureFromFile("data/textures/red.tga"));
+    textures.emplace(TextureType::Red,   readTextureFromFile("data/textures/red.tga"));
     textures.emplace(TextureType::White, readTextureFromFile("data/textures/white.tga"));
-    textures.emplace(TextureType::Wood, readTextureFromFile("data/textures/wood.tga"));
+    textures.emplace(TextureType::Wood,  readTextureFromFile("data/textures/wood.tga"));
 }
 
 GraphicsManager::~GraphicsManager() {
@@ -71,12 +38,12 @@ GraphicsManager::~GraphicsManager() {
     }
 }
 
-ShaderProgram *GraphicsManager::getShader(ObjectType id) {
-   return data[id].shader.get();
+ShaderProgram *GraphicsManager::getShader(ShaderType id) {
+   return shaders[id].get();
 }
 
 ObjectBuffers *GraphicsManager::getBuffer(ObjectType id) {
-   return data[id].buffers.get();
+   return objects[id].get();
 }
 
 GLuint GraphicsManager::getTexture(TextureType id) {

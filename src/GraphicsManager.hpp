@@ -7,6 +7,7 @@
 #include "ObjectBuffers.hpp"
 
 enum class ObjectType  : char { Red, PokojeKolumny, salaTronowa, ScianySufitPodloga, Okna, MebleNieb, MebleDrew, MebleCzer, MebleBiale };
+enum class ShaderType : char { Standard };
 enum class TextureType : char { Purple, Red, White, Wood };
 
 class GraphicsManager {
@@ -14,22 +15,14 @@ class GraphicsManager {
         GraphicsManager();
         virtual ~GraphicsManager();
 
-        ShaderProgram *getShader(ObjectType id);
+        ShaderProgram *getShader(ShaderType id);
         ObjectBuffers *getBuffer(ObjectType id);
         GLuint getTexture(TextureType id);
     private:
-        struct ObjectData {
-            ObjectData() { }
-            ObjectData(ObjectType id);
-
-            unique_ptr<ObjectBuffers> buffers;
-            unique_ptr<ShaderProgram> shader;
-        };
-
         GLuint readTextureFromFile(const string &filename);
 
-        // Dla każdego typu obiektu bufory VBO, program cieniujący i VAO
-        map<ObjectType, ObjectData> data;
+        map<ShaderType, unique_ptr<ShaderProgram>> shaders;
+        map<ObjectType, unique_ptr<ObjectBuffers>> objects;
         map<TextureType, GLuint> textures;
 };
 

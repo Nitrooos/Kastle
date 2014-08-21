@@ -7,47 +7,47 @@ World::World() {
     collisionMap.loadFromFile("data/maps/collision.png");
 
     objects.push_back(Entity{grMananger.getBuffer(ObjectType::Red),
-                             grMananger.getShader(ObjectType::Red),
+                             grMananger.getShader(ShaderType::Standard),
                              0, 0, 5,
                              grMananger.getTexture(TextureType::Red)}
                      );
     objects.push_back(Entity{grMananger.getBuffer(ObjectType::PokojeKolumny),
-                             grMananger.getShader(ObjectType::PokojeKolumny),
+                             grMananger.getShader(ShaderType::Standard),
                              0, 0, 5,
                              grMananger.getTexture(TextureType::Purple)}
                      );
     objects.push_back(Entity{grMananger.getBuffer(ObjectType::salaTronowa),
-                             grMananger.getShader(ObjectType::salaTronowa),
+                             grMananger.getShader(ShaderType::Standard),
                              0, 0, 5,
                              grMananger.getTexture(TextureType::Purple)}
                      );
     objects.push_back(Entity{grMananger.getBuffer(ObjectType::ScianySufitPodloga),
-                             grMananger.getShader(ObjectType::ScianySufitPodloga),
+                             grMananger.getShader(ShaderType::Standard),
                              0, 0, 5,
                              grMananger.getTexture(TextureType::Purple)}
                      );
     objects.push_back(Entity{grMananger.getBuffer(ObjectType::Okna),
-                             grMananger.getShader(ObjectType::Okna),
+                             grMananger.getShader(ShaderType::Standard),
                              0, 0, 5,
                              grMananger.getTexture(TextureType::Red)}
                      );
     objects.push_back(Entity{grMananger.getBuffer(ObjectType::MebleNieb),
-                             grMananger.getShader(ObjectType::MebleNieb),
+                             grMananger.getShader(ShaderType::Standard),
                              0, 0, 5,
                              grMananger.getTexture(TextureType::Purple)}
                      );
     objects.push_back(Entity{grMananger.getBuffer(ObjectType::MebleDrew),
-                             grMananger.getShader(ObjectType::MebleDrew),
+                             grMananger.getShader(ShaderType::Standard),
                              0, 0, 5,
                              grMananger.getTexture(TextureType::Wood)}
                      );
     objects.push_back(Entity{grMananger.getBuffer(ObjectType::MebleCzer),
-                             grMananger.getShader(ObjectType::MebleCzer),
+                             grMananger.getShader(ShaderType::Standard),
                              0, 0, 5,
                              grMananger.getTexture(TextureType::Red)}
                      );
     objects.push_back(Entity{grMananger.getBuffer(ObjectType::MebleBiale),
-                             grMananger.getShader(ObjectType::MebleBiale),
+                             grMananger.getShader(ShaderType::Standard),
                              0, 0, 5,
                              grMananger.getTexture(TextureType::White)}
                      );
