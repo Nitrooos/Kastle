@@ -7,7 +7,7 @@ GraphicsManager::ObjectData::ObjectData(ObjectType id) {
     switch (id) {
         case ObjectType::Teapot:
             shader.reset (new ShaderProgram("src/shaders/vshader.glsl", nullptr, "src/shaders/fshader.glsl"));
-            buffers.reset(new ObjectBuffers(shader, "models/czerwone.obj"));
+            buffers.reset(new ObjectBuffers(shader, "models/teapot.obj"));
             break;
         case ObjectType::Tree:
             shader.reset (new ShaderProgram("src/shaders/vshader.glsl", nullptr, "src/shaders/fshader.glsl"));
@@ -16,19 +16,24 @@ GraphicsManager::ObjectData::ObjectData(ObjectType id) {
         case ObjectType::Hall:
             shader.reset (new ShaderProgram("src/shaders/vshader.glsl", nullptr, "src/shaders/fshader.glsl"));
             buffers.reset(new ObjectBuffers(shader, "models/niebieskie.obj"));
+            break;
+        case ObjectType::Decorations:
+            shader.reset (new ShaderProgram("src/shaders/vshader.glsl", nullptr, "src/shaders/fshader.glsl"));
+            buffers.reset(new ObjectBuffers(shader, "models/czerwone.obj"));
+            break;
     }
 }
 
 GraphicsManager::GraphicsManager() {
-    data.emplace(ObjectType::Teapot, ObjectData(ObjectType::Teapot));
-    data.emplace(ObjectType::Tree,   ObjectData(ObjectType::Tree));
-    data.emplace(ObjectType::Hall,   ObjectData(ObjectType::Hall));
+    data.emplace(ObjectType::Hall,        ObjectData(ObjectType::Hall));
+    data.emplace(ObjectType::Decorations, ObjectData(ObjectType::Decorations));
 
-    textures.emplace(TextureType::Metal, readTextureFromFile("data/textures/red.tga"));
+    textures.emplace(TextureType::Metal, readTextureFromFile("data/textures/metal.tga"));
     textures.emplace(TextureType::Brick, readTextureFromFile("data/textures/bricks.tga"));
     textures.emplace(TextureType::Sky,   readTextureFromFile("data/textures/sky.tga"));
     textures.emplace(TextureType::Stone, readTextureFromFile("data/textures/stones.tga"));
     textures.emplace(TextureType::Purple,readTextureFromFile("data/textures/purple2.tga"));
+    textures.emplace(TextureType::Red,   readTextureFromFile("data/textures/red.tga"));
 }
 
 GraphicsManager::~GraphicsManager() {

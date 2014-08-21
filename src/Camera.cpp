@@ -39,9 +39,9 @@ void Camera::roll(float changeLeftRight, float changeUpDown) {
     paramTLeftRight += changeLeftRight;
     paramTUpDown += changeUpDown;
 
-    centerX = x + 7*cos(paramTLeftRight)*cos(paramTUpDown);
-    centerY = y + 7*sin(paramTUpDown);
-    centerZ = z - 7*sin(paramTLeftRight)*cos(paramTUpDown);
+    centerX = x + 20*cos(paramTLeftRight)*cos(paramTUpDown);
+    centerY = y + 20*sin(paramTUpDown);
+    centerZ = z - 20*sin(paramTLeftRight)*cos(paramTUpDown);
 
     updateMatrixV();
 
@@ -77,7 +77,7 @@ const mat4& Camera::getMatrixP() const {
 }
 
 void Camera::writeCoordinates() const {
-    cout << fixed << setw(15) << "\rx: " << x << "  y: " << y << "  z: " << z << "  alfa: " << alfa << "  paramLR: " << paramTLeftRight << flush;
+    cout << fixed << setw(15) << "\rx: " << x << "  y: " << y << "  z: " << z << flush;
 }
 
 void Camera::updateMatrixV() {

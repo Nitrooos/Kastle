@@ -20,7 +20,7 @@ int znajdzLiczbe(string ciag, int i, char znak) {
         i++;
     } while(ciag.at(i)!=znak);
 
-    int c = atoi(liczba.c_str());
+    int c = strtol(liczba.c_str(), nullptr, 10);
     return c;
 }
 
@@ -31,17 +31,17 @@ void znajdzFloat(string ciag, int j, float *tablica) {
         liczba += ciag.at(i);
         i++;
     } while (ciag.at(i) != ' ');
-    float c = atof(liczba.c_str());
+    float c = strtof(liczba.c_str(), nullptr);
 
     liczba = "";
     do {
         liczba += ciag.at(i);
         i++;
     } while (ciag.at(i) != ' ');
-    float d = atof(liczba.c_str());
+    float d = strtof(liczba.c_str(), nullptr);
 
     liczba = ciag.substr(i,ciag.length());
-    float e = atof(liczba.c_str());
+    float e = strtof(liczba.c_str(), nullptr);
     tablica[j]=c;
     tablica[j+1]=d;
     tablica[j+2]=e;

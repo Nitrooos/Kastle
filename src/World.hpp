@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <SFML/Window/Event.hpp>
+#include <SFML/Graphics/Image.hpp>
 
 using namespace std;
 using namespace sf;
@@ -23,10 +24,12 @@ class World {
     private:
         // akt stworzenia
         void onInit();
+        bool isCollision(float xShift, float yShift, float zShift) const;       // czy na nowych wsp camery wystąpi kolizja z obiektem?
 
         vector<Entity> objects;                 // obiekty należące do świata
         GraphicsManager grMananger;             // manager obiektów rysowanych na scenie
         Camera camera{-10.0, 5.0, 80.0};        // kamera, przez którą ogląda świat użytkownik
+        Image collisionMap;                     // czarno-biały obrazek wskazujący miejsca kolizji w zamku z góry
 
         static constexpr float 
                          sensitivity = 0.2f;    // jednostka zmiany położenia kamery

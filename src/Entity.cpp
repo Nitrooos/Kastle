@@ -21,7 +21,8 @@ void Entity::onRender(const Camera &c) {
     glUniformMatrix4fv(shaderProgram->getUniformLocation("V"), 1, false, value_ptr(c.getMatrixV()));
     glUniformMatrix4fv(shaderProgram->getUniformLocation("M"), 1, false, value_ptr(matrixM));
 
-    glUniform4f(shaderProgram->getUniformLocation("lightPosition"), -4, 5, 30, 1);
+    //glUniform4f(shaderProgram->getUniformLocation("lightPosition"), 0, 10, 40, 1);
+    glUniform4f(shaderProgram->getUniformLocation("lightPosition"), c.getX(), c.getY(), c.getZ(), 1);
 
     glUniform1i(shaderProgram->getUniformLocation("textureMap0"), 0);
     glActiveTexture(GL_TEXTURE0);

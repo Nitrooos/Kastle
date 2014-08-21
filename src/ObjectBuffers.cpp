@@ -1,5 +1,4 @@
 #include "ObjectBuffers.hpp"
-#include "Teapot.hpp"
 
 ObjectBuffers::ObjectBuffers(unique_ptr<ShaderProgram> const& sp, const string &filename)
     : model(filename) {

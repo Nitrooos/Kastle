@@ -6,7 +6,7 @@ solution "OpenGL"
             kind "ConsoleApp"
             files "src/*.cpp"
             buildoptions { "-w -Wall -std=c++11" }
-            linkoptions { "-lGL -lsfml-window -lsfml-system -lGLEW" }
+            linkoptions { "-lGL -lsfml-window -lsfml-system -lsfml-graphics -lGLEW" }
             objdir "obj"
 
         configuration { "debug" }
