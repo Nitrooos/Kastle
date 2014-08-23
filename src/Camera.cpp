@@ -5,17 +5,24 @@
 #include <iomanip>
 #include "glm/gtc/matrix_transform.hpp"
 
-Camera::Camera(float x, float y, float z) : x(x), y(y), z(z) {
+Camera::Camera(float x, float y, float z) : x(x), y(y), z(z), baselineY(y) {
+    updateMatrixV();
+    updateMatrixV();
     updateMatrixV();
     matrixP = perspective(45.0f, (float)App::getWindowWidth()/(float)App::getWindowHeight(), 1.0f, 100.0f);
 }
 
 Camera::~Camera() { }
 
+void Camera::setYPos(float y) {
+    this->y = y;
+}
+
 void Camera::movEye(float movX, float movY, float movZ) {
     x += movX;
     y += movY;
     z += movZ;
+    baselineY += movY;
 
     centerX += movX;
     centerY += movY;
@@ -58,6 +65,10 @@ float Camera::getY() const {
 
 float Camera::getZ() const {
     return z;
+}
+
+float Camera::getBaselineY() const {
+    return baselineY;
 }
 
 float Camera::getXShift(float velocity) const {

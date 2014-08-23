@@ -6,7 +6,7 @@
 GraphicsManager::GraphicsManager() {
     shaders.emplace(ShaderType::Standard,
                     unique_ptr<ShaderProgram> (new ShaderProgram("src/shaders/vshader.glsl", nullptr, "src/shaders/fshader.glsl")));
-    
+
     objects.emplace(ObjectType::Red,
                     unique_ptr<ObjectBuffers> (new ObjectBuffers(shaders[ShaderType::Standard], "models/czerwone.obj")));
     objects.emplace(ObjectType::PokojeKolumny,
@@ -17,14 +17,14 @@ GraphicsManager::GraphicsManager() {
                     unique_ptr<ObjectBuffers> (new ObjectBuffers(shaders[ShaderType::Standard], "models/ScianySufitPodloga.obj")));
     objects.emplace(ObjectType::Okna,
                     unique_ptr<ObjectBuffers> (new ObjectBuffers(shaders[ShaderType::Standard], "models/okna.obj")));
-    objects.emplace(ObjectType::MebleNieb,
+    /*objects.emplace(ObjectType::MebleNieb,
                     unique_ptr<ObjectBuffers> (new ObjectBuffers(shaders[ShaderType::Standard], "models/mebleNieb.obj")));
     objects.emplace(ObjectType::MebleDrew,
                     unique_ptr<ObjectBuffers> (new ObjectBuffers(shaders[ShaderType::Standard], "models/mebleDrew.obj")));
     objects.emplace(ObjectType::MebleCzer,
                     unique_ptr<ObjectBuffers> (new ObjectBuffers(shaders[ShaderType::Standard], "models/mebleCzer.obj")));
     objects.emplace(ObjectType::MebleBiale,
-                    unique_ptr<ObjectBuffers> (new ObjectBuffers(shaders[ShaderType::Standard], "models/mebleBiale.obj")));
+                    unique_ptr<ObjectBuffers> (new ObjectBuffers(shaders[ShaderType::Standard], "models/mebleBiale.obj")));*/
 
     textures.emplace(TextureType::Purple,readTextureFromFile("data/textures/purple.tga"));
     textures.emplace(TextureType::Red,   readTextureFromFile("data/textures/red.tga"));
