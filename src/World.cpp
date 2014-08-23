@@ -36,7 +36,7 @@ World::World() {
                              0, 0, 5,
                              grMananger.getTexture(TextureType::Purple)}
                      );
-    objects.push_back(Entity{grMananger.getBuffer(ObjectType::MebleDrew),
+    /*objects.push_back(Entity{grMananger.getBuffer(ObjectType::MebleDrew),
                              grMananger.getShader(ShaderType::Standard),
                              0, 0, 5,
                              grMananger.getTexture(TextureType::Wood)}
@@ -68,6 +68,7 @@ void World::onKeyboardEvent(Event e) {
                 case Keyboard::K: height =  sensitivity; break;
                 case Keyboard::M: height = -sensitivity; break;
                 case Keyboard::X: rotateObjects = !rotateObjects; break;
+                case Keyboard::Y: drugs = !drugs; break;
             }
             break;
         case Event::KeyReleased:

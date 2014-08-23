@@ -9,6 +9,10 @@ in vec4 v;
 uniform sampler2D textureMap0, textureMap1;
 in vec2 iTexCoord;
 in vec2 iTexCoord2;
+uniform vec4 dragi1; 
+uniform vec4 dragi2;
+uniform vec4 dragi3;
+uniform float polysk;
 
 void main(void) {
 
@@ -16,15 +20,15 @@ void main(void) {
     vec4 La=vec4(0,0,0,0);                  //Kolor swiatla otoczenia (ambient)
     vec4 Ma=vec4(0,0,0,0);                  //Kolor materialu dla swiatla otoczenia
 
-    vec4 Ld=vec4(1,1,1,1);                  //Kolor swiatla rozpraszanego
+    vec4 Ld=dragi1;//vec4(1,1,1,1);                  //Kolor swiatla rozpraszanego
 
     //Kolor materialu dla swiatla rozpraszanego
     //vec4 Md=(3*texture(textureMap0, iTexCoord) + texture(textureMap1, iTexCoord2))/4;
     vec4 Md=texture(textureMap0, iTexCoord);
 
-    vec4 Ls=vec4(1,1,1,1);                  //Kolor swiatla odbijanego
-    vec4 Ms=vec4(1,1,1,1);                  //Kolor materialu dla swiatla odbijanego
-    float shininess=100;                         //Polyskliwosc materialu
+    vec4 Ls=dragi2;//vec4(1,1,1,1);                  //Kolor swiatla odbijanego
+    vec4 Ms=dragi3;//vec4(1,1,1,1);                  //Kolor materialu dla swiatla odbijanego
+    float shininess=polysk;                         //Polyskliwosc materialu
 
     //Wektory potrzebne do obliczenia modelu oswietlenia
     vec4 ml=normalize(l);

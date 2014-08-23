@@ -21,6 +21,7 @@ class World {
         void onMouseEvent(const Vector2<int> &pos);
         void onLoop();
         void onRender();
+        bool drugs{false};
     private:
         // akt stworzenia
         void onInit();
@@ -39,6 +40,7 @@ class World {
               headParam{0.0};                   // parametr x funkcji sin x po wykresie której porusza się kamera
 
         bool rotateObjects{false};              // czy włączyć obracanie obiektów?
+                              // dragi
 };
 
 #endif /* end of include guard: WORLD */
