@@ -90,9 +90,9 @@ OBJLoader::OBJLoader(string source)
     coordsCount = 0;
     facesCount = 0;
 
-    cout << "Create OBJLoader from: " << source << "\n";
+    //cout << "Create OBJLoader from: " << source << "\n";
     load();
-    cout << "Done\n";
+    //cout << "Done\n";
 }
 
 OBJLoader::~OBJLoader() {
@@ -114,24 +114,24 @@ void OBJLoader::load() {
                 size_t found = a.find("vertices");
                 if (found!=string::npos) {
                     verticesCount = znajdzLiczbe(a,2,' ');
-                    cout << "Vertices: " << verticesCount << '\n';
+                    //cout << "Vertices: " << verticesCount << '\n';
                 }
                 found = a.find("normals");
                 if (found!=string::npos) {
                     normalsCount = znajdzLiczbe(a,2,' ');
-                    cout << "Vertex normals: " << normalsCount << '\n';
+                    //cout << "Vertex normals: " << normalsCount << '\n';
                 }
                 found = a.find("coords");
                 if (found!=string::npos) {
                     coordsCount = znajdzLiczbe(a,2,' ');
-                    cout << "Texture coords: " << coordsCount << '\n';
+                    //cout << "Texture coords: " << coordsCount << '\n';
                 }
                 found = a.find("faces");
                 if (found!=string::npos) {
                     facesCount=znajdzLiczbe(a,2,' ');
-                    cout << "Faces: " << facesCount << '\n';
+                    //cout << "Faces: " << facesCount << '\n';
                     vertexCount = facesCount*3;
-                    cout << "Vertex count: " << vertexCount << '\n';
+                    //cout << "Vertex count: " << vertexCount << '\n';
                 }
             } else break;
         }

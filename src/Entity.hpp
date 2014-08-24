@@ -7,6 +7,7 @@
 using namespace std;
 using namespace glm;
 
+#include "LightsMaterials.hpp"
 #include "Camera.hpp"
 #include "ShaderProgram.hpp"
 #include "ObjectBuffers.hpp"
@@ -17,7 +18,7 @@ class Entity {
         virtual ~Entity();
 
         void onLoop();
-        void onRender(const Camera &c);
+        void onRender(const Camera &c, const Light &l, const Light &l1, const Material &m);
 
         void move(double movX, double movY, double movZ);
         void setPosition(double x, double y, double z);

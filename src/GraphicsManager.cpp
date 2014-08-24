@@ -6,6 +6,8 @@
 GraphicsManager::GraphicsManager() {
     shaders.emplace(ShaderType::Standard,
                     unique_ptr<ShaderProgram> (new ShaderProgram("src/shaders/vshader.glsl", nullptr, "src/shaders/fshader.glsl")));
+    shaders.emplace(ShaderType::Standard2,
+                    unique_ptr<ShaderProgram> (new ShaderProgram("src/shaders/vshader.glsl", nullptr, "src/shaders/fshader2.glsl")));
 
     objects.emplace(ObjectType::Red,
                     unique_ptr<ObjectBuffers> (new ObjectBuffers(shaders[ShaderType::Standard], "models/czerwone.obj")));

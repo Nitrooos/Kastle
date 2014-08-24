@@ -7,7 +7,7 @@ World::World() {
     collisionMap.loadFromFile("data/maps/collision2.png");
 
     objects.push_back(Entity{grMananger.getBuffer(ObjectType::Red),
-                             grMananger.getShader(ShaderType::Standard),
+                             grMananger.getShader(ShaderType::Standard2),
                              0, 0, 5,
                              grMananger.getTexture(TextureType::Red)}
                      );
@@ -27,7 +27,7 @@ World::World() {
                              grMananger.getTexture(TextureType::Purple)}
                      );
     objects.push_back(Entity{grMananger.getBuffer(ObjectType::Okna),
-                             grMananger.getShader(ShaderType::Standard),
+                             grMananger.getShader(ShaderType::Standard2),
                              0, 0, 5,
                              grMananger.getTexture(TextureType::Red)}
                      );
@@ -51,6 +51,25 @@ World::World() {
                              0, 0, 5,
                              grMananger.getTexture(TextureType::White)}
                      );*/
+
+    lights[0]={ {0.0,0.0,0.0,0.0},      //ambient  - kolor swiatla otoczenia
+                {0.01,0.01,0.01,0.01},      //diffuse  - kolor swiatla rozpraszanego
+                {1.0,1.0,1.0,1.0},      //specular - kolor swiatla odbijanego
+                {0.0,10.0,40.0,1.0}     //position
+              };
+
+    lights[1]={ {0.0,0.0,0.0,0.0},      //ambient  - kolor swiatla otoczenia
+                {0.5,0.5,0.5,0.5},      //diffuse  - kolor swiatla rozpraszanego
+                {0.5,0.5,0.5,0.5},      //specular - kolor swiatla odbijanego
+                {0.0,20.0,40.0,1.0}     //position
+              };
+
+    materials[0]={  {0.0,0.0,0.0,0.0},      //emission  - 
+                    {0.0,0.0,0.0,0.0},      //ambient   - kolor swiatla otoczenia
+                    {1.0,1.0,1.0,1.0},      //diffuse   - kolor swiatla rozpraszanego
+                    {0.01,0.01,0.01,0.01},    //specular  - kolor swiatla odbijanego
+                    200.0                   //shininess   - polysk
+                };
     onInit();
 }
 
@@ -114,7 +133,7 @@ void World::onLoop() {
 void World::onRender() {
     // renderuj każdy obiekt świata po kolei
     for (auto &x : objects)
-        x.onRender(camera);
+        x.onRender(camera, lights[0], lights[1], materials[0]);
 }
 
 void World::onInit() {
