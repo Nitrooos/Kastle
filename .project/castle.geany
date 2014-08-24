@@ -23,7 +23,15 @@ long_line_behaviour=1
 long_line_column=72
 
 [files]
-current_page=-1
+current_page=4
+FILE_NAME_0=272;C++;0;EUTF-8;0;1;1;%2Fhome%2Fbartas%2FDocuments%2FPolitechnika%2FSemestr%20IV%2FGK%2FCastle%2Fsrc%2FEntity.cpp;0;4
+FILE_NAME_1=159;C++;0;EUTF-8;0;1;1;%2Fhome%2Fbartas%2FDocuments%2FPolitechnika%2FSemestr%20IV%2FGK%2FCastle%2Fsrc%2FGraphicsManager.cpp;0;4
+FILE_NAME_2=474;C++;0;EUTF-8;0;1;1;%2Fhome%2Fbartas%2FDocuments%2FPolitechnika%2FSemestr%20IV%2FGK%2FCastle%2Fsrc%2FGraphicsManager.hpp;0;4
+FILE_NAME_3=947;C++;0;EUTF-8;0;1;1;%2Fhome%2Fbartas%2FDocuments%2FPolitechnika%2FSemestr%20IV%2FGK%2FCastle%2Fsrc%2FLoadingScreen.hpp;0;4
+FILE_NAME_4=1055;C++;0;EUTF-8;0;1;1;%2Fhome%2Fbartas%2FDocuments%2FPolitechnika%2FSemestr%20IV%2FGK%2FCastle%2Fsrc%2FObserver.hpp;0;4
+FILE_NAME_5=130;C++;0;EUTF-8;0;1;1;%2Fhome%2Fbartas%2FDocuments%2FPolitechnika%2FSemestr%20IV%2FGK%2FCastle%2Fsrc%2FLoadingScreen.cpp;0;4
+FILE_NAME_6=0;C++;0;EUTF-8;0;1;1;%2Fhome%2Fbartas%2FDocuments%2FPolitechnika%2FSemestr%20IV%2FGK%2FCastle%2Fsrc%2FOBJLoader.cpp;0;4
+FILE_NAME_7=303;C++;0;EUTF-8;0;1;1;%2Fhome%2Fbartas%2FDocuments%2FPolitechnika%2FSemestr%20IV%2FGK%2FCastle%2Fsrc%2FOBJLoader.hpp;0;4
 
 [VTE]
 last_dir=/home/bartas/Documents/Politechnika/Semestr IV/GK/Castle/src
@@ -38,8 +46,8 @@ EX_00_WD=
 C++FT_01_LB=Build
 C++FT_01_CM=
 C++FT_01_WD=
-C++FT_02_LB=
-C++FT_02_CM=
+C++FT_02_LB=_Premake
+C++FT_02_CM=cd .. && premake4 gmake
 C++FT_02_WD=
 filetypes=C++;
 NF_02_LB=Make _Clean

@@ -2,11 +2,13 @@
 #define APP
 
 #include <SFML/Window.hpp>
+#include <SFML/Graphics.hpp>
 #include <memory>
 
 using namespace std;
 using namespace sf;
 
+#include "LoadingScreen.hpp"
 #include "World.hpp"
 
 class App {
@@ -32,9 +34,12 @@ class App {
         void onRender();               // renderowanie sceny
 
         enum { windowWidth = 800, windowHeight = 600 };
-        bool running{true};            // czy aplikacja jeszcze działa?
-        Window window;                 // okno aplikacji
-        unique_ptr<World> world;       // "świat" złożony z obiektów
+        bool running{true};                         // czy aplikacja jeszcze działa?
+        RenderWindow window;                        // okno aplikacji
+
+        unique_ptr<GraphicsManager> grMananger;     // manager zasobów (grafiki i modele)
+        unique_ptr<LoadingScreen> loadingScreen;    // ekran ładowania zasobów
+        unique_ptr<World> world;                    // "świat" złożony z obiektów
 };
 
 #endif /* end of include guard: APP */

@@ -3,20 +3,32 @@
 
 #include <iostream>
 
-GraphicsManager::GraphicsManager() {
+GraphicsManager::GraphicsManager() { }
+
+void GraphicsManager::onLoad() {
     shaders.emplace(ShaderType::Standard,
                     unique_ptr<ShaderProgram> (new ShaderProgram("src/shaders/vshader.glsl", nullptr, "src/shaders/fshader.glsl")));
+    notifyObservers(16.67, false);
 
     objects.emplace(ObjectType::Red,
                     unique_ptr<ObjectBuffers> (new ObjectBuffers(shaders[ShaderType::Standard], "models/czerwone.obj")));
+    notifyObservers(16.67);
+
     objects.emplace(ObjectType::PokojeKolumny,
                     unique_ptr<ObjectBuffers> (new ObjectBuffers(shaders[ShaderType::Standard], "models/PokojeKolumny.obj")));
+    notifyObservers(16.67);
+
     objects.emplace(ObjectType::salaTronowa,
                     unique_ptr<ObjectBuffers> (new ObjectBuffers(shaders[ShaderType::Standard], "models/salaTronowa.obj")));
+    notifyObservers(16.67);
+
     objects.emplace(ObjectType::ScianySufitPodloga,
                     unique_ptr<ObjectBuffers> (new ObjectBuffers(shaders[ShaderType::Standard], "models/ScianySufitPodloga.obj")));
+    notifyObservers(16.67);
+
     objects.emplace(ObjectType::Okna,
                     unique_ptr<ObjectBuffers> (new ObjectBuffers(shaders[ShaderType::Standard], "models/okna.obj")));
+    notifyObservers(16.67);
     /*objects.emplace(ObjectType::MebleNieb,
                     unique_ptr<ObjectBuffers> (new ObjectBuffers(shaders[ShaderType::Standard], "models/mebleNieb.obj")));
     objects.emplace(ObjectType::MebleDrew,

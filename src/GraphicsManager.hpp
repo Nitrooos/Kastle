@@ -3,6 +3,7 @@
 
 #include <map>
 
+#include "Observer.hpp"
 #include "ShaderProgram.hpp"
 #include "ObjectBuffers.hpp"
 
@@ -10,10 +11,12 @@ enum class ObjectType  : char { Red, PokojeKolumny, salaTronowa, ScianySufitPodl
 enum class ShaderType : char { Standard };
 enum class TextureType : char { Purple, Red, White, Wood };
 
-class GraphicsManager {
+class GraphicsManager : public Observable {
     public:
         GraphicsManager();
         virtual ~GraphicsManager();
+
+        void onLoad();
 
         ShaderProgram *getShader(ShaderType id);
         ObjectBuffers *getBuffer(ObjectType id);

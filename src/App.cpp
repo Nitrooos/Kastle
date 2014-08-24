@@ -14,7 +14,9 @@ void App::onInit() {
     initSFML();
     initGLEW();
 
-    world.reset(new World());
+    grMananger.reset(new GraphicsManager());
+    loadingScreen.reset(new LoadingScreen(window, grMananger.get()));
+    world.reset(new World(grMananger.get()));
 }
 
 void App::initSFML() {
@@ -53,7 +55,7 @@ void App::onEvent() {
                 } else
                     world->onKeyboardEvent(event);
                 break;
-            case Event::MouseLeft: 
+            case Event::MouseLeft:
             case Event::MouseMoved:
                 if (Mouse::getPosition(window) != getWindowCenter()) {
                     world->onMouseEvent(Mouse::getPosition(window));
@@ -63,8 +65,6 @@ void App::onEvent() {
         }
     }
 }
-
-
 
 void App::onLoop() {
     world->onLoop();

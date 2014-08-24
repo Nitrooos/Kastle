@@ -4,13 +4,13 @@
 #include "glm/gtc/type_ptr.hpp"
 #include "glm/gtc/matrix_transform.hpp"
 
-float polysk=0.0;
+float polysk=100.0;
 float stopienPolysku=0.01;
-float red=0.0,blue=0.5, green=1.0;
+float red=0.3,blue=0.8, green=1.0;
 float stopienRed=0.01, stopienBlue=0.01, stopienGreen=0.01;
 int kierunek;
 
-Entity::Entity(ObjectBuffers *ob, ShaderProgram *sp, double x, double y, double z, GLuint tex0, GLuint tex1) 
+Entity::Entity(ObjectBuffers *ob, ShaderProgram *sp, double x, double y, double z, GLuint tex0, GLuint tex1)
     : objectBuffers(ob), shaderProgram(sp), x(x), y(y), z(z), tex0(tex0), tex1(tex1) {
         updateMatrixM();
 }
@@ -29,7 +29,7 @@ void Entity::onRender(const Camera &c) {
     /*
     if(!w.drugs) cout<<"1";
 
-    if (polysk>5) stopienPolysku=-0.01; 
+    if (polysk>5) stopienPolysku=-0.01;
     if (polysk<=0.01) stopienPolysku=0.01;
     polysk+=stopienPolysku;
 

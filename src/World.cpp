@@ -3,33 +3,33 @@
 
 #include <iostream>
 
-World::World() {
+World::World(GraphicsManager *gm) : grMananger(gm) {
     collisionMap.loadFromFile("data/maps/collision2.png");
 
-    objects.push_back(Entity{grMananger.getBuffer(ObjectType::Red),
-                             grMananger.getShader(ShaderType::Standard),
+    objects.push_back(Entity{grMananger->getBuffer(ObjectType::Red),
+                             grMananger->getShader(ShaderType::Standard),
                              0, 0, 5,
-                             grMananger.getTexture(TextureType::Red)}
+                             grMananger->getTexture(TextureType::Red)}
                      );
-    objects.push_back(Entity{grMananger.getBuffer(ObjectType::PokojeKolumny),
-                             grMananger.getShader(ShaderType::Standard),
+    objects.push_back(Entity{grMananger->getBuffer(ObjectType::PokojeKolumny),
+                             grMananger->getShader(ShaderType::Standard),
                              0, 0, 5,
-                             grMananger.getTexture(TextureType::Purple)}
+                             grMananger->getTexture(TextureType::Purple)}
                      );
-    objects.push_back(Entity{grMananger.getBuffer(ObjectType::salaTronowa),
-                             grMananger.getShader(ShaderType::Standard),
+    objects.push_back(Entity{grMananger->getBuffer(ObjectType::salaTronowa),
+                             grMananger->getShader(ShaderType::Standard),
                              0, 0, 5,
-                             grMananger.getTexture(TextureType::Purple)}
+                             grMananger->getTexture(TextureType::Purple)}
                      );
-    objects.push_back(Entity{grMananger.getBuffer(ObjectType::ScianySufitPodloga),
-                             grMananger.getShader(ShaderType::Standard),
+    objects.push_back(Entity{grMananger->getBuffer(ObjectType::ScianySufitPodloga),
+                             grMananger->getShader(ShaderType::Standard),
                              0, 0, 5,
-                             grMananger.getTexture(TextureType::Purple)}
+                             grMananger->getTexture(TextureType::Purple)}
                      );
-    objects.push_back(Entity{grMananger.getBuffer(ObjectType::Okna),
-                             grMananger.getShader(ShaderType::Standard),
+    objects.push_back(Entity{grMananger->getBuffer(ObjectType::Okna),
+                             grMananger->getShader(ShaderType::Standard),
                              0, 0, 5,
-                             grMananger.getTexture(TextureType::Red)}
+                             grMananger->getTexture(TextureType::Red)}
                      );
     /*objects.push_back(Entity{grMananger.getBuffer(ObjectType::MebleNieb),
                              grMananger.getShader(ShaderType::Standard),
@@ -133,6 +133,6 @@ bool World::isCollision(float xShift, float zShift) const {
         return false;
 
     Color c = collisionMap.getPixel(imageCoordX, imageCoordZ);
-    cout << "imageCoordX: " << imageCoordX << "\t\timageCoordZ: " << imageCoordZ << "\n";
+    //cout << "imageCoordX: " << imageCoordX << "\t\timageCoordZ: " << imageCoordZ << "\n";
     return !c.r;
 }
