@@ -8,7 +8,7 @@
 #include "ObjectBuffers.hpp"
 
 enum class ObjectType  : char { Red, PokojeKolumny, salaTronowa, ScianySufitPodloga, Okna, MebleNieb, MebleDrew, MebleCzer, MebleBiale };
-enum class ShaderType : char { Standard };
+enum class ShaderType : char { Standard, Standard2 };
 enum class TextureType : char { Purple, Red, White, Wood };
 
 class GraphicsManager : public Observable {

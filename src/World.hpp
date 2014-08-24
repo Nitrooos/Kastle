@@ -8,8 +8,10 @@
 using namespace std;
 using namespace sf;
 
+#include "glm/glm.hpp"
 #include "Entity.hpp"
 #include "Camera.hpp"
+#include "LightsMaterials.hpp"
 #include "GraphicsManager.hpp"
 
 class World {
@@ -31,6 +33,8 @@ class World {
         vector<Entity> objects;                 // obiekty należące do świata
         Camera camera{-10.0, 5.0, 80.0};        // kamera, przez którą ogląda świat użytkownik
         Image collisionMap;                     // czarno-biały obrazek wskazujący miejsca kolizji w zamku z góry
+        Light lights[2];                        // swiatla
+        Material materials[2];                  // materialy
 
         static constexpr float
                          sensitivity = 0.2f;    // jednostka zmiany położenia kamery
