@@ -1,6 +1,5 @@
 #include "LoadingScreen.hpp"
-
-#include <iostream>
+#include <SFML/Window/Event.hpp>
 
 LoadingScreen::LoadingScreen(RenderWindow &window, GraphicsManager *gm)
     : grMananger(gm), window(window) {
@@ -8,12 +7,15 @@ LoadingScreen::LoadingScreen(RenderWindow &window, GraphicsManager *gm)
 
     grMananger->addObserver(this);
     grMananger->onLoad();
+
+    this->waitForReaction();
 }
 
 void LoadingScreen::update(float percent, bool wasOpenGLused) {
     static const string texts[] = {
-        "Wznoszenie scian...", "Pucowanie okien...", "Malowanie balustrad...",
-        "Nalewanie wod gruntowych...", "Uaktywnianie teleportu...", "Sprzatanie po melanzu..." };
+        "Wznoszenie scian...", "Pucowanie czajnikow...", "Malowanie balustrad...",
+        "Nalewanie wod gruntowych...", "Uaktywnianie teleportu...", "Sprzatanie po melanzu...",
+        "Gromadzenie fotonow" };
     static int count = 0;
 
     text.setString(texts[count]);
@@ -53,4 +55,27 @@ void LoadingScreen::onInit() {
     window.clear(Color::Black);
     window.draw(background);
     window.display();
+}
+
+void LoadingScreen::waitForReaction() {
+    text.setPosition(Vector2f{window.getSize().x/2 - text.getLocalBounds().width,
+                              window.getSize().y - text.getCharacterSize() - 5});
+    text.setString("Wcisnij dowolny klawisz aby rozpoczac");
+
+    window.popGLStates();
+
+    window.clear(Color::Black);
+    window.draw(background);
+    window.draw(progressBar);
+    window.draw(text);
+    window.display();
+
+    window.pushGLStates();
+
+    Event ev;
+    while (1) {
+        window.waitEvent(ev);
+        if (ev.type == Event::KeyPressed)
+            break;
+    }
 }

@@ -12,7 +12,7 @@ void GraphicsManager::onLoad() {
 
     shaders.emplace(ShaderType::Standard2,
                     unique_ptr<ShaderProgram> (new ShaderProgram("src/shaders/vshader.glsl", nullptr, "src/shaders/fshader2.glsl")));
-    notifyObservers(14.29);
+    notifyObservers(14.29, false);
 
     objects.emplace(ObjectType::Red,
                     unique_ptr<ObjectBuffers> (new ObjectBuffers(shaders[ShaderType::Standard], "models/czerwone.obj")));
@@ -41,7 +41,6 @@ void GraphicsManager::onLoad() {
                     unique_ptr<ObjectBuffers> (new ObjectBuffers(shaders[ShaderType::Standard], "models/mebleCzer.obj")));
     objects.emplace(ObjectType::MebleBiale,
                     unique_ptr<ObjectBuffers> (new ObjectBuffers(shaders[ShaderType::Standard], "models/mebleBiale.obj")));*/
-
     textures.emplace(TextureType::Purple,readTextureFromFile("data/textures/purple.tga"));
     textures.emplace(TextureType::Red,   readTextureFromFile("data/textures/red.tga"));
     textures.emplace(TextureType::White, readTextureFromFile("data/textures/white.tga"));

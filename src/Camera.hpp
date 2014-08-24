@@ -14,6 +14,7 @@ class Camera {
 
         // przesuń oko kamery wzdłuż osi
         void setYPos(float y);
+        void setBaselineY(float baselineY);
         void movEye(float movX, float movY, float movZ);
         void roll(float cenX, float cenY, float cenZ);
         void roll(float changeLeftRight, float changeUpDown);

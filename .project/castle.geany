@@ -23,15 +23,19 @@ long_line_behaviour=1
 long_line_column=72
 
 [files]
-current_page=4
-FILE_NAME_0=272;C++;0;EUTF-8;0;1;1;%2Fhome%2Fbartas%2FDocuments%2FPolitechnika%2FSemestr%20IV%2FGK%2FCastle%2Fsrc%2FEntity.cpp;0;4
-FILE_NAME_1=159;C++;0;EUTF-8;0;1;1;%2Fhome%2Fbartas%2FDocuments%2FPolitechnika%2FSemestr%20IV%2FGK%2FCastle%2Fsrc%2FGraphicsManager.cpp;0;4
-FILE_NAME_2=474;C++;0;EUTF-8;0;1;1;%2Fhome%2Fbartas%2FDocuments%2FPolitechnika%2FSemestr%20IV%2FGK%2FCastle%2Fsrc%2FGraphicsManager.hpp;0;4
-FILE_NAME_3=947;C++;0;EUTF-8;0;1;1;%2Fhome%2Fbartas%2FDocuments%2FPolitechnika%2FSemestr%20IV%2FGK%2FCastle%2Fsrc%2FLoadingScreen.hpp;0;4
-FILE_NAME_4=1055;C++;0;EUTF-8;0;1;1;%2Fhome%2Fbartas%2FDocuments%2FPolitechnika%2FSemestr%20IV%2FGK%2FCastle%2Fsrc%2FObserver.hpp;0;4
-FILE_NAME_5=130;C++;0;EUTF-8;0;1;1;%2Fhome%2Fbartas%2FDocuments%2FPolitechnika%2FSemestr%20IV%2FGK%2FCastle%2Fsrc%2FLoadingScreen.cpp;0;4
-FILE_NAME_6=0;C++;0;EUTF-8;0;1;1;%2Fhome%2Fbartas%2FDocuments%2FPolitechnika%2FSemestr%20IV%2FGK%2FCastle%2Fsrc%2FOBJLoader.cpp;0;4
-FILE_NAME_7=303;C++;0;EUTF-8;0;1;1;%2Fhome%2Fbartas%2FDocuments%2FPolitechnika%2FSemestr%20IV%2FGK%2FCastle%2Fsrc%2FOBJLoader.hpp;0;4
+current_page=2
+FILE_NAME_0=162;C++;0;EUTF-8;0;1;1;%2Fhome%2Fbartas%2FDocuments%2FPolitechnika%2FSemestr%20IV%2FGK%2FCastle%2Fsrc%2FEntity.cpp;0;4
+FILE_NAME_1=282;C++;0;EUTF-8;0;1;1;%2Fhome%2Fbartas%2FDocuments%2FPolitechnika%2FSemestr%20IV%2FGK%2FCastle%2Fsrc%2FEntity.hpp;0;4
+FILE_NAME_2=1908;C++;0;EUTF-8;0;1;1;%2Fhome%2Fbartas%2FDocuments%2FPolitechnika%2FSemestr%20IV%2FGK%2FCastle%2Fsrc%2FGraphicsManager.cpp;0;4
+FILE_NAME_3=1478;C++;0;EUTF-8;0;1;1;%2Fhome%2Fbartas%2FDocuments%2FPolitechnika%2FSemestr%20IV%2FGK%2FCastle%2Fsrc%2FApp.hpp;0;4
+FILE_NAME_4=234;C++;0;EUTF-8;0;1;1;%2Fhome%2Fbartas%2FDocuments%2FPolitechnika%2FSemestr%20IV%2FGK%2FCastle%2Fsrc%2FApp.cpp;0;4
+FILE_NAME_5=945;C++;0;EUTF-8;0;1;1;%2Fhome%2Fbartas%2FDocuments%2FPolitechnika%2FSemestr%20IV%2FGK%2FCastle%2Fsrc%2FWorld.cpp;0;4
+FILE_NAME_6=625;C++;0;EUTF-8;0;1;1;%2Fhome%2Fbartas%2FDocuments%2FPolitechnika%2FSemestr%20IV%2FGK%2FCastle%2Fsrc%2FGraphicsManager.hpp;0;4
+FILE_NAME_7=1784;C++;0;EUTF-8;0;1;1;%2Fhome%2Fbartas%2FDocuments%2FPolitechnika%2FSemestr%20IV%2FGK%2FCastle%2Fsrc%2FLoadingScreen.hpp;0;4
+FILE_NAME_8=1296;C++;0;EUTF-8;0;1;1;%2Fhome%2Fbartas%2FDocuments%2FPolitechnika%2FSemestr%20IV%2FGK%2FCastle%2Fsrc%2FLoadingScreen.cpp;0;4
+FILE_NAME_9=1144;C++;0;EUTF-8;0;1;1;%2Fhome%2Fbartas%2FDocuments%2FPolitechnika%2FSemestr%20IV%2FGK%2FCastle%2Fsrc%2FObserver.hpp;0;4
+FILE_NAME_10=0;C++;0;EUTF-8;0;1;1;%2Fhome%2Fbartas%2FDocuments%2FPolitechnika%2FSemestr%20IV%2FGK%2FCastle%2Fsrc%2FOBJLoader.cpp;0;4
+FILE_NAME_11=303;C++;0;EUTF-8;0;1;1;%2Fhome%2Fbartas%2FDocuments%2FPolitechnika%2FSemestr%20IV%2FGK%2FCastle%2Fsrc%2FOBJLoader.hpp;0;4
 
 [VTE]
 last_dir=/home/bartas/Documents/Politechnika/Semestr IV/GK/Castle/src

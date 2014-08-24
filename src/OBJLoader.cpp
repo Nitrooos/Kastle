@@ -146,11 +146,11 @@ void OBJLoader::load() {
         float *verticesObj = new float[verticesCount*3];
         float *normalsObj = new float[normalsCount*3];
         float *textureObj = new float[coordsCount*3];
-        
+
         vertices = new float[facesCount*4*3];
         normals = new float[facesCount*4*3];
         texture = new float[facesCount*3*3];
-        
+
         int i = 0, j = 0, k = 0, l = 0, t = 0;
 
         while ( true ) {

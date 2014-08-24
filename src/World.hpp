@@ -28,10 +28,11 @@ class World {
         // akt stworzenia
         void onInit();
         bool isCollision(float xShift, float zShift) const;       // czy na nowych wsp camery wystąpi kolizja z obiektem?
+        void checkTeleport();
 
         GraphicsManager *grMananger;            // manager obiektów rysowanych na scenie
         vector<Entity> objects;                 // obiekty należące do świata
-        Camera camera{-10.0, 5.0, 80.0};        // kamera, przez którą ogląda świat użytkownik
+        Camera camera{-10.0, 3.0, 80.0};        // kamera, przez którą ogląda świat użytkownik
         Image collisionMap;                     // czarno-biały obrazek wskazujący miejsca kolizji w zamku z góry
         Light lights[2];                        // swiatla
         Material materials[2];                  // materialy

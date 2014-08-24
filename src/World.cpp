@@ -6,8 +6,8 @@
 World::World(GraphicsManager *gm) : grMananger(gm) {
     collisionMap.loadFromFile("data/maps/collision2.png");
 
-    objects.push_back(Entity{grMananger.getBuffer(ObjectType::Red),
-                             grMananger.getShader(ShaderType::Standard2),
+    objects.push_back(Entity{grMananger->getBuffer(ObjectType::Red),
+                             grMananger->getShader(ShaderType::Standard2),
                              0, 0, 5,
                              grMananger->getTexture(TextureType::Red)}
                      );
@@ -26,8 +26,8 @@ World::World(GraphicsManager *gm) : grMananger(gm) {
                              0, 0, 5,
                              grMananger->getTexture(TextureType::Purple)}
                      );
-    objects.push_back(Entity{grMananger.getBuffer(ObjectType::Okna),
-                             grMananger.getShader(ShaderType::Standard2),
+    objects.push_back(Entity{grMananger->getBuffer(ObjectType::Okna),
+                             grMananger->getShader(ShaderType::Standard2),
                              0, 0, 5,
                              grMananger->getTexture(TextureType::Red)}
                      );
@@ -88,6 +88,7 @@ void World::onKeyboardEvent(Event e) {
                 case Keyboard::M: height = -sensitivity; break;
                 case Keyboard::X: rotateObjects = !rotateObjects; break;
                 case Keyboard::Y: drugs = !drugs; break;
+                case Keyboard::T: checkTeleport(); break;
             }
             break;
         case Event::KeyReleased:
@@ -127,7 +128,7 @@ void World::onLoop() {
         camera.setYPos(camera.getBaselineY() + 0.3*sin(headParam += 0.1f));
     }
 
-    //camera.writeCoordinates();
+    camera.writeCoordinates();
 }
 
 void World::onRender() {
@@ -154,4 +155,18 @@ bool World::isCollision(float xShift, float zShift) const {
     Color c = collisionMap.getPixel(imageCoordX, imageCoordZ);
     //cout << "imageCoordX: " << imageCoordX << "\t\timageCoordZ: " << imageCoordZ << "\n";
     return !c.r;
+}
+
+void World::checkTeleport() {
+    float distanceOne = sqrt(pow(camera.getX() + 36, 2) + pow(camera.getZ() - 120, 2)),
+          distanceTwo = sqrt(pow(camera.getX() - 30, 2) + pow(camera.getZ() - 120, 2));
+    if (distanceOne < 5.0 || distanceTwo < 5.0) {
+        if (camera.getY() < 10.0) {
+            camera.setYPos(10.0);
+            camera.setBaselineY(10.0);
+        } else {
+            camera.setYPos(3.0);
+            camera.setBaselineY(3.0);
+        }
+    }
 }

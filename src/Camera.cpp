@@ -18,6 +18,10 @@ void Camera::setYPos(float y) {
     this->y = y;
 }
 
+void Camera::setBaselineY(float baselineY) {
+    this->baselineY = baselineY;
+}
+
 void Camera::movEye(float movX, float movY, float movZ) {
     x += movX;
     y += movY;

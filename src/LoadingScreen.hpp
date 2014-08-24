@@ -37,6 +37,7 @@ class LoadingScreen : public Observer {
         void update(float percent, bool wasOpenGLused = true);
     private:
         void onInit();
+        void waitForReaction();
 
         GraphicsManager *grMananger;            // manager zasobów (informuje o stanie ładowania)
         RenderWindow &window;                   // okienko, na którym rysowany jestr pasek postępu ładowania
