@@ -15,7 +15,7 @@ void LoadingScreen::update(float percent, bool wasOpenGLused) {
     static const string texts[] = {
         "Wznoszenie scian...", "Pucowanie czajnikow...", "Malowanie balustrad...",
         "Nalewanie wod gruntowych...", "Uaktywnianie teleportu...", "Sprzatanie po melanzu...",
-        "Gromadzenie fotonow", "Zamykanie drzwi" };
+        "Gromadzenie fotonow", "Zamykanie drzwi", "Zamykanie drzwi2" };
     static int count = 0;
 
     text.setString(texts[count]);
