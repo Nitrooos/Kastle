@@ -15,7 +15,7 @@ void GraphicsManager::onLoad() {
     notifyObservers(14.29, false);
 
     objects.emplace(ObjectType::Red,
-                    unique_ptr<ObjectBuffers> (new ObjectBuffers(shaders[ShaderType::Standard], "models/czerwone.obj")));
+                    unique_ptr<ObjectBuffers> (new ObjectBuffers(shaders[ShaderType::Standard2], "models/czerwone.obj")));
     notifyObservers(14.29);
 
     objects.emplace(ObjectType::PokojeKolumny,

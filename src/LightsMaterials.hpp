@@ -1,12 +1,6 @@
 #ifndef LIGHTSMATERIALS
 #define LIGHTSMATERIALS
 
-#include "glm/glm.hpp"
-#include "glm/gtc/type_ptr.hpp"
-#include "glm/gtc/matrix_transform.hpp"
-#include <GL/glew.h>
-//#include "App.hpp"
-
 struct Light {
     float ambient[4];
     float diffuse[4];
@@ -22,11 +16,9 @@ struct Light {
     float quadraticAttenuation;
 };
 
-
 struct LightModel {
     float ambient[4];
 };
-
 
 struct Material {
     float emission[4];
@@ -35,4 +27,5 @@ struct Material {
     float specular[4];
     float shininess;
 };
+
 #endif /* end of include guard: CAMERA */
