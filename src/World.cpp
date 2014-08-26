@@ -31,6 +31,11 @@ World::World(GraphicsManager *gm) : grMananger(gm) {
                              0, 0, 5,
                              grMananger->getTexture(TextureType::Red)}
                      );
+    objects.push_back(Entity{grMananger->getBuffer(ObjectType::Drzwi),
+                             grMananger->getShader(ShaderType::Standard2),
+                             0, 0, 5,
+                             grMananger->getTexture(TextureType::Red)}
+                     );
     /*objects.push_back(Entity{grMananger.getBuffer(ObjectType::MebleNieb),
                              grMananger.getShader(ShaderType::Standard),
                              0, 0, 5,

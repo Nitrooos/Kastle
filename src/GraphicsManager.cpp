@@ -33,6 +33,9 @@ void GraphicsManager::onLoad() {
     objects.emplace(ObjectType::Okna,
                     unique_ptr<ObjectBuffers> (new ObjectBuffers(shaders[ShaderType::Standard], "models/okna.obj")));
     notifyObservers(14.29);
+    objects.emplace(ObjectType::Drzwi,
+                    unique_ptr<ObjectBuffers> (new ObjectBuffers(shaders[ShaderType::Standard], "models/drzwi.obj")));
+    notifyObservers(14.29);
     /*objects.emplace(ObjectType::MebleNieb,
                     unique_ptr<ObjectBuffers> (new ObjectBuffers(shaders[ShaderType::Standard], "models/mebleNieb.obj")));
     objects.emplace(ObjectType::MebleDrew,
