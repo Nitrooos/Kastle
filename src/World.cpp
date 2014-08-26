@@ -31,6 +31,16 @@ World::World(GraphicsManager *gm) : grMananger(gm) {
                              0, 0, 5,
                              grMananger->getTexture(TextureType::Red)}
                      );
+    objects.push_back(Entity{grMananger->getBuffer(ObjectType::Drzwi),
+                             grMananger->getShader(ShaderType::Standard2),
+                             -4.5, 0.6, 70.5,
+                             grMananger->getTexture(TextureType::Red)}
+                     );
+    objects.push_back(Entity{grMananger->getBuffer(ObjectType::Drzwi),
+                             grMananger->getShader(ShaderType::Standard2),
+                             -4.5, 5, 70.5,
+                             grMananger->getTexture(TextureType::Red)}
+                     );
     /*objects.push_back(Entity{grMananger.getBuffer(ObjectType::MebleNieb),
                              grMananger.getShader(ShaderType::Standard),
                              0, 0, 5,
@@ -53,7 +63,7 @@ World::World(GraphicsManager *gm) : grMananger(gm) {
                      );*/
 
     lights[0]={ {0.0,0.0,0.0,0.0},      //ambient  - kolor swiatla otoczenia
-                {0.01,0.01,0.01,0.01},      //diffuse  - kolor swiatla rozpraszanego
+                {0.01,0.01,0.01,1.0},      //diffuse  - kolor swiatla rozpraszanego
                 {1.0,1.0,1.0,1.0},      //specular - kolor swiatla odbijanego
                 {0.0,10.0,40.0,1.0}     //position
               };
