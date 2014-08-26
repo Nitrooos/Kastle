@@ -21,7 +21,7 @@ void App::onInit() {
 
 void App::initSFML() {
     // stwórz okno
-    window.create(VideoMode(windowWidth, windowHeight), "OpenGL", Style::Default, ContextSettings(32));
+    window.create(VideoMode(windowWidth, windowHeight), "OpenGL", Style::Fullscreen, ContextSettings(32));
     window.setFramerateLimit(60);
     window.setKeyRepeatEnabled(false);
     window.setMouseCursorVisible(false);

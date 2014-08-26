@@ -33,7 +33,7 @@ class App {
         void onLoop();                 // operacje wykonywane w każdym przebiegu głównej pętli
         void onRender();               // renderowanie sceny
 
-        enum { windowWidth = 800, windowHeight = 600 };
+        enum { windowWidth = 1366, windowHeight = 768 };
         bool running{true};                         // czy aplikacja jeszcze działa?
         RenderWindow window;                        // okno aplikacji
 
