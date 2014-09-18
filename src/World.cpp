@@ -101,7 +101,7 @@ void World::onMouseEvent(const Vector2<int> &pos) {
 
 void World::onLoop() {
     if (this->rotateObjects) {
-        float angle = 0.1f;
+        float angle = 1.0f;
         for (auto &x : objects) {
             x.roll(angle);
             angle *= -1;
@@ -158,7 +158,7 @@ bool World::isCollision(float xShift, float zShift) const {
 void World::checkAction() {
     float distFromTeleoport1 = sqrt(pow(camera.getX() + 36, 2) + pow(camera.getZ() - 120, 2)),
           distFromTeleoport2 = sqrt(pow(camera.getX() - 30, 2) + pow(camera.getZ() - 120, 2)),
-          distFromDoors = sqrt(pow(camera.getX(), 2) + pow(camera.getZ() - 80, 2));
+          distFromDoors = sqrt(pow(camera.getX() + 5, 2) + pow(camera.getZ() - 75, 2));
 
     if (distFromTeleoport1 < 5.0f || distFromTeleoport2 < 5.0f)
         teleport();
@@ -179,7 +179,7 @@ void World::teleport() {
 }
 
 void World::openDoors() {
-    float dir = 1.0f;
+    float dir = -1.0f;
     for (auto &o : objects) {
         if (abs(o.getX() + 6.5) < 5.0f && o.getZ() == 70.5f ) {
             Animation anim(o);

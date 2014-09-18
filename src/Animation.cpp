@@ -8,9 +8,10 @@ void Animation::setParams(float rollAngle, float stopAngle) {
 }
 
 void Animation::animate() {
-    if (culmutativeAngle < stopAngle)
+    if (abs(culmutativeAngle) < stopAngle) {
         object.roll(rollAngle);
-    else
+        culmutativeAngle += rollAngle;
+    } else
         status = Status::Stop;
 }
 
