@@ -33,9 +33,11 @@ class World {
         GraphicsManager *grMananger;            // manager obiektów rysowanych na scenie
         vector<Entity> objects;                 // obiekty należące do świata
         Camera camera{-10.0, 3.0, 80.0};        // kamera, przez którą ogląda świat użytkownik
-        Image collisionMap;                     // czarno-biały obrazek wskazujący miejsca kolizji w zamku z góry
+        Image collisionMap,                     // czarno-biały obrazek wskazujący miejsca kolizji w zamku z góry
+              firstFloorCollisionMap;           // mapa kolizji dla piętra (aby gracz nie przechodził przez barierki)
         Light lights[2];                        // swiatla
         Material materials[2];                  // materialy
+        bool cameraOnFirstFloor{false};         // czy gracz jest na piętrze?s
 
         static constexpr float
                          sensitivity = 0.2f;    // jednostka zmiany położenia kamery

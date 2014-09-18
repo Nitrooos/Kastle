@@ -5,6 +5,7 @@
 
 World::World(GraphicsManager *gm) : grMananger(gm) {
     collisionMap.loadFromFile("data/maps/collision2.png");
+    firstFloorCollisionMap.loadFromFile("data/maps/collisionFirstFloor.png");
 
     objects.push_back(Entity{grMananger->getBuffer(ObjectType::Red),
                              grMananger->getShader(ShaderType::Standard2),
@@ -78,7 +79,6 @@ void World::onKeyboardEvent(Event e) {
                 case Keyboard::K: height =  sensitivity; break;
                 case Keyboard::M: height = -sensitivity; break;
                 case Keyboard::X: rotateObjects = !rotateObjects; break;
-                case Keyboard::Y: drugs = !drugs; break;
                 case Keyboard::T: checkTeleport(); break;
             }
             break;
@@ -139,11 +139,13 @@ bool World::isCollision(float xShift, float zShift) const {
                     p2 = 49.0f;
     float imageCoordX = (camera.getX() + xShift + p1)*w,
           imageCoordZ = (camera.getZ() + zShift + p2)*w;
-    if (imageCoordX < 0 || imageCoordX > collisionMap.getSize().x ||
-        imageCoordZ < 0 || imageCoordZ > collisionMap.getSize().y)
+    const Image &correctMap = cameraOnFirstFloor ? firstFloorCollisionMap : collisionMap;
+
+    if (imageCoordX < 0 || imageCoordX > correctMap.getSize().x ||
+        imageCoordZ < 0 || imageCoordZ > correctMap.getSize().y)
         return false;
 
-    Color c = collisionMap.getPixel(imageCoordX, imageCoordZ);
+    Color c = correctMap.getPixel(imageCoordX, imageCoordZ);
     return !c.r;
 }
 
@@ -154,9 +156,11 @@ void World::checkTeleport() {
         if (camera.getY() < 10.0) {
             camera.setYPos(10.0);
             camera.setBaselineY(10.0);
+            cameraOnFirstFloor = true;
         } else {
             camera.setYPos(3.0);
             camera.setBaselineY(3.0);
+            cameraOnFirstFloor = false;
         }
     }
 }
