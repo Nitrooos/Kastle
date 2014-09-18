@@ -24,6 +24,10 @@ class Entity {
         void setPosition(double x, double y, double z);
         void roll(double rotAngle);
         void setAngle(double angle);
+
+        float getX() { return x; }
+        float getY() { return y; }
+        float getZ() { return z; }
     private:
         void updateMatrixM();
 

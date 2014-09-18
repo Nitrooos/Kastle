@@ -2,6 +2,7 @@
 #define WORLD
 
 #include <vector>
+#include <list>
 #include <SFML/Window/Event.hpp>
 #include <SFML/Graphics/Image.hpp>
 
@@ -10,6 +11,7 @@ using namespace sf;
 
 #include "glm/glm.hpp"
 #include "Entity.hpp"
+#include "Animation.hpp"
 #include "Camera.hpp"
 #include "LightsMaterials.hpp"
 #include "GraphicsManager.hpp"
@@ -27,16 +29,21 @@ class World {
         // akt stworzenia
         void onInit();
         bool isCollision(float xShift, float zShift) const;       // czy na nowych wsp camery wystąpi kolizja z obiektem?
-        void checkTeleport();
+        void checkAction();
+        void teleport();
+        void openDoors();
 
         GraphicsManager *grMananger;            // manager obiektów rysowanych na scenie
         vector<Entity> objects;                 // obiekty należące do świata
+        list<Animation> animations;             // animacje obiektów na scenie
         Camera camera{-10.0, 3.0, 80.0};        // kamera, przez którą ogląda świat użytkownik
+        bool cameraOnFirstFloor{false};         // czy gracz jest na piętrze?
+
         Image collisionMap,                     // czarno-biały obrazek wskazujący miejsca kolizji w zamku z góry
               firstFloorCollisionMap;           // mapa kolizji dla piętra (aby gracz nie przechodził przez barierki)
+
         Light lights[2];                        // swiatla
         Material materials[2];                  // materialy
-        bool cameraOnFirstFloor{false};         // czy gracz jest na piętrze?s
 
         static constexpr float
                          sensitivity = 0.2f;    // jednostka zmiany położenia kamery

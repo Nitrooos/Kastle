@@ -33,8 +33,8 @@ void GraphicsManager::onLoad() {
     objects.emplace(ObjectType::Okna,
                     unique_ptr<ObjectBuffers> (new ObjectBuffers(shaders[ShaderType::Standard], "models/okna.obj")));
     notifyObservers(12.5);
-    
-    objects.emplace(ObjectType::Drzwi,
+
+    objects.emplace(ObjectType::Doors,
                     unique_ptr<ObjectBuffers> (new ObjectBuffers(shaders[ShaderType::Standard], "models/drzwi.obj")));
     notifyObservers(12.5);
 

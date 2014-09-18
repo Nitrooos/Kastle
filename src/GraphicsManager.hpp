@@ -3,13 +3,10 @@
 
 #include <map>
 
+#include "Types.hpp"
 #include "Observer.hpp"
 #include "ShaderProgram.hpp"
 #include "ObjectBuffers.hpp"
-
-enum class ObjectType  : char { Red, PokojeKolumny, salaTronowa, ScianySufitPodloga, Okna, Drzwi, MebleNieb, MebleDrew, MebleCzer, MebleBiale };
-enum class ShaderType : char { Standard, Standard2 };
-enum class TextureType : char { Purple, Red, White, Wood };
 
 class GraphicsManager : public Observable {
     public:

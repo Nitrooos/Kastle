@@ -32,12 +32,12 @@ World::World(GraphicsManager *gm) : grMananger(gm) {
                              0, 0, 5,
                              grMananger->getTexture(TextureType::Red)}
                      );
-    objects.push_back(Entity{grMananger->getBuffer(ObjectType::Drzwi),
+    objects.push_back(Entity{grMananger->getBuffer(ObjectType::Doors),
                              grMananger->getShader(ShaderType::Standard2),
                              -4.95, 0.6, 70.5,
                              grMananger->getTexture(TextureType::Red)}
                      );
-    objects.push_back(Entity{grMananger->getBuffer(ObjectType::Drzwi),
+    objects.push_back(Entity{grMananger->getBuffer(ObjectType::Doors),
                              grMananger->getShader(ShaderType::Standard2),
                              -7.9, 0.6, 70.5,
                              grMananger->getTexture(TextureType::Red)}
@@ -79,7 +79,7 @@ void World::onKeyboardEvent(Event e) {
                 case Keyboard::K: height =  sensitivity; break;
                 case Keyboard::M: height = -sensitivity; break;
                 case Keyboard::X: rotateObjects = !rotateObjects; break;
-                case Keyboard::T: checkTeleport(); break;
+                case Keyboard::T: checkAction(); break;
             }
             break;
         case Event::KeyReleased:
@@ -100,15 +100,18 @@ void World::onMouseEvent(const Vector2<int> &pos) {
 }
 
 void World::onLoop() {
-    /*if (this->rotateObjects) {
+    if (this->rotateObjects) {
         float angle = 0.1f;
         for (auto &x : objects) {
             x.roll(angle);
             angle *= -1;
         }
-    }*/
-    if (this->rotateObjects) {
-        objects.back().roll(0.8f);
+    }
+
+    // Odegraj wszystkie animacje obiektów
+    for (auto &a : animations) {
+        if (a.animate() == Animation::Stop)
+            animations.erase(a);
     }
 
     float xShift = -camera.getZShift(this->go) + camera.getXShift(this->side),
@@ -122,7 +125,7 @@ void World::onLoop() {
         camera.setYPos(camera.getBaselineY() + 0.3*sin(headParam += 0.1f));
     }
 
-    //camera.writeCoordinates();
+    camera.writeCoordinates();
 }
 
 void World::onRender() {
@@ -152,18 +155,37 @@ bool World::isCollision(float xShift, float zShift) const {
     return !c.r;
 }
 
-void World::checkTeleport() {
-    float distanceOne = sqrt(pow(camera.getX() + 36, 2) + pow(camera.getZ() - 120, 2)),
-          distanceTwo = sqrt(pow(camera.getX() - 30, 2) + pow(camera.getZ() - 120, 2));
-    if (distanceOne < 5.0 || distanceTwo < 5.0) {
-        if (camera.getY() < 10.0) {
-            camera.setYPos(10.0);
-            camera.setBaselineY(10.0);
-            cameraOnFirstFloor = true;
-        } else {
-            camera.setYPos(3.0);
-            camera.setBaselineY(3.0);
-            cameraOnFirstFloor = false;
+void World::checkAction() {
+    float distFromTeleoport1 = sqrt(pow(camera.getX() + 36, 2) + pow(camera.getZ() - 120, 2)),
+          distFromTeleoport2 = sqrt(pow(camera.getX() - 30, 2) + pow(camera.getZ() - 120, 2)),
+          distFromDoors = sqrt(pow(camera.getX(), 2) + pow(camera.getZ() - 70, 2));
+
+    if (distFromTeleoport1 < 5.0f || distFromTeleoport2 < 5.0f)
+        teleport();
+    if (distFromDoors < 5.0f)
+        openDoors();
+}
+
+void World::teleport() {
+    if (camera.getY() < 10.0) {
+        camera.setYPos(10.0);
+        camera.setBaselineY(10.0);
+        cameraOnFirstFloor = true;
+    } else {
+        camera.setYPos(3.0);
+        camera.setBaselineY(3.0);
+        cameraOnFirstFloor = false;
+    }
+}
+
+void World::openDoors() {
+    float dir = 1.0f;
+    for (auto &o : objects) {
+        if (abs(o.getX() + 6.5) < 5.0f && o.getZ() == 70.5f ) {
+            Animation anim(o);
+            anim.setParams(dir, 90.0f);
+            animations.push_back(anim);
+            dir *= -1;
         }
     }
 }

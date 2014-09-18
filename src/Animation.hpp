@@ -27,17 +27,19 @@
 
 class Animation {
     public:
+        enum Status { Running, Stop };
+
         Animation(Entity &object);
 
         void setParams(float rollAngle, float stopAngle);
-        Status animate();
-
-        enum Status { Running, Stop };
+        void animate();
+        Status getStatus();
     private:
         Entity &object;
         float rollAngle{0.0f},
               culmutativeAngle{0.0f},
               stopAngle{0.0f};
+        Status status{Status::Running};
 };
 
 #endif /* ANIMATION_H */

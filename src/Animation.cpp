@@ -7,10 +7,13 @@ void Animation::setParams(float rollAngle, float stopAngle) {
     this->stopAngle = stopAngle;
 }
 
-Status Animation::animate() {
-    if (culmutativeAngle < stopAngle) {
+void Animation::animate() {
+    if (culmutativeAngle < stopAngle)
         object.roll(rollAngle);
-        return Status::Running;
-    } else
-        return Status::Stop;
+    else
+        status = Status::Stop;
+}
+
+Status Animation::getStatus() {
+    return status;
 }
