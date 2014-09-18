@@ -2,7 +2,7 @@
 final_new_line=true
 ensure_convert_new_lines=false
 strip_trailing_spaces=true
-replace_tabs=true
+replace_tabs=false
 
 [indentation]
 indent_width=4
@@ -14,7 +14,7 @@ indent_mode=2
 
 [project]
 name=Castle
-base_path=/home/bartas/Documents/Politechnika/Semestr\\ IV/GK/Castle
+base_path=/home/bartosz/Documents/Politechnika/Semestr IV/GK/Castle
 description=
 file_patterns=
 
@@ -23,44 +23,8 @@ long_line_behaviour=1
 long_line_column=72
 
 [files]
-current_page=6
-FILE_NAME_0=4015;C++;0;EUTF-8;0;1;1;%2Fhome%2Fbartas%2FDocuments%2FPolitechnika%2FSemestr%20IV%2FGK%2FCastle%2Fsrc%2FEntity.cpp;0;4
-FILE_NAME_1=960;C++;0;EUTF-8;0;1;1;%2Fhome%2Fbartas%2FDocuments%2FPolitechnika%2FSemestr%20IV%2FGK%2FCastle%2Fsrc%2FWorld.hpp;0;4
-FILE_NAME_2=89;C++;0;EUTF-8;0;1;1;%2Fhome%2Fbartas%2FDocuments%2FPolitechnika%2FSemestr%20IV%2FGK%2FCastle%2Fsrc%2FEntity.hpp;0;4
-FILE_NAME_3=700;C++;0;EUTF-8;0;1;1;%2Fhome%2Fbartas%2FDocuments%2FPolitechnika%2FSemestr%20IV%2FGK%2FCastle%2Fsrc%2FGraphicsManager.cpp;0;4
-FILE_NAME_4=1620;C++;0;EUTF-8;0;1;1;%2Fhome%2Fbartas%2FDocuments%2FPolitechnika%2FSemestr%20IV%2FGK%2FCastle%2Fsrc%2FApp.hpp;0;4
-FILE_NAME_5=668;C++;0;EUTF-8;0;1;1;%2Fhome%2Fbartas%2FDocuments%2FPolitechnika%2FSemestr%20IV%2FGK%2FCastle%2Fsrc%2FApp.cpp;0;4
-FILE_NAME_6=6999;C++;0;EUTF-8;0;1;1;%2Fhome%2Fbartas%2FDocuments%2FPolitechnika%2FSemestr%20IV%2FGK%2FCastle%2Fsrc%2FWorld.cpp;0;4
-FILE_NAME_7=625;C++;0;EUTF-8;0;1;1;%2Fhome%2Fbartas%2FDocuments%2FPolitechnika%2FSemestr%20IV%2FGK%2FCastle%2Fsrc%2FGraphicsManager.hpp;0;4
-FILE_NAME_8=1239;C++;0;EUTF-8;0;1;1;%2Fhome%2Fbartas%2FDocuments%2FPolitechnika%2FSemestr%20IV%2FGK%2FCastle%2Fsrc%2FLoadingScreen.hpp;0;4
-FILE_NAME_9=2069;C++;0;EUTF-8;0;1;1;%2Fhome%2Fbartas%2FDocuments%2FPolitechnika%2FSemestr%20IV%2FGK%2FCastle%2Fsrc%2FLoadingScreen.cpp;0;4
-
-[VTE]
-last_dir=/home/bartas/Documents/Politechnika/Semestr IV/GK/Castle/src
+current_page=0
+FILE_NAME_0=4083;C++;0;EUTF-8;0;1;1;%2Fhome%2Fbartosz%2FDocuments%2FPolitechnika%2FSemestr%20IV%2FGK%2FCastle%2Fsrc%2FWorld.cpp;0;4
 
 [build-menu]
-NF_00_LB=_Make
-NF_00_CM=cd ../ && make -j
-NF_00_WD=
-EX_00_LB=_Execute
-EX_00_CM=cd ../ && debug/Castle
-EX_00_WD=
-C++FT_01_LB=Build
-C++FT_01_CM=
-C++FT_01_WD=
-C++FT_02_LB=_Premake
-C++FT_02_CM=cd .. && premake4 gmake
-C++FT_02_WD=
 filetypes=C++;
-NF_02_LB=Make _Clean
-NF_02_CM=cd ../ && make clean
-NF_02_WD=
-NF_03_LB=_Rebuild
-NF_03_CM=cd ../ && make clean && make -j
-NF_03_WD=
-C++FT_00_LB=Compile
-C++FT_00_CM=
-C++FT_00_WD=
-NF_04_LB=_Premake
-NF_04_CM=cd ../ && /usr/bin/premake4 gmake
-NF_04_WD=

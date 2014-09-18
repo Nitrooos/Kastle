@@ -33,52 +33,33 @@ World::World(GraphicsManager *gm) : grMananger(gm) {
                      );
     objects.push_back(Entity{grMananger->getBuffer(ObjectType::Drzwi),
                              grMananger->getShader(ShaderType::Standard2),
-                             -4.5, 0.6, 70.5,
+                             -4.95, 0.6, 70.5,
                              grMananger->getTexture(TextureType::Red)}
                      );
     objects.push_back(Entity{grMananger->getBuffer(ObjectType::Drzwi),
                              grMananger->getShader(ShaderType::Standard2),
-                             -4.5, 5, 70.5,
+                             -7.9, 0.6, 70.5,
                              grMananger->getTexture(TextureType::Red)}
                      );
-    /*objects.push_back(Entity{grMananger.getBuffer(ObjectType::MebleNieb),
-                             grMananger.getShader(ShaderType::Standard),
-                             0, 0, 5,
-                             grMananger.getTexture(TextureType::Purple)}
-                     );
-    /*objects.push_back(Entity{grMananger.getBuffer(ObjectType::MebleDrew),
-                             grMananger.getShader(ShaderType::Standard),
-                             0, 0, 5,
-                             grMananger.getTexture(TextureType::Wood)}
-                     );
-    objects.push_back(Entity{grMananger.getBuffer(ObjectType::MebleCzer),
-                             grMananger.getShader(ShaderType::Standard),
-                             0, 0, 5,
-                             grMananger.getTexture(TextureType::Red)}
-                     );
-    objects.push_back(Entity{grMananger.getBuffer(ObjectType::MebleBiale),
-                             grMananger.getShader(ShaderType::Standard),
-                             0, 0, 5,
-                             grMananger.getTexture(TextureType::White)}
-                     );*/
 
-    lights[0]={ {0.0,0.0,0.0,0.0},      //ambient  - kolor swiatla otoczenia
-                {0.01,0.01,0.01,1.0},      //diffuse  - kolor swiatla rozpraszanego
-                {1.0,1.0,1.0,1.0},      //specular - kolor swiatla odbijanego
-                {0.0,10.0,40.0,1.0}     //position
-              };
 
-    lights[1]={ {0.0,0.0,0.0,0.0},      //ambient  - kolor swiatla otoczenia
-                {0.5,0.5,0.5,0.5},      //diffuse  - kolor swiatla rozpraszanego
-                {0.5,0.5,0.5,0.5},      //specular - kolor swiatla odbijanego
-                {0.0,20.0,40.0,1.0}     //position
-              };
+    lights[0] = {   { 0.0,  0.0,  0.0,  0.0 },       //ambient  - kolor swiatla otoczenia
+                    { 0.01, 0.01, 0.01, 1.0 },       //diffuse  - kolor swiatla rozpraszanego
+                    { 1.0,  1.0,  1.0,  1.0 },       //specular - kolor swiatla odbijanego
+                    { 0.0,  10.0, 40.0, 1.0 }        //position
+                };
 
-    materials[0]={  {0.0,0.0,0.0,0.0},      //emission  -
-                    {0.0,0.0,0.0,0.0},      //ambient   - kolor swiatla otoczenia
-                    {1.0,1.0,1.0,1.0},      //diffuse   - kolor swiatla rozpraszanego
-                    {0.01,0.01,0.01,0.01},    //specular  - kolor swiatla odbijanego
-                    200.0                   //shininess   - polysk
+    lights[1] = {   { 0.0, 0.0,  0.0,  0.0 },       //ambient  - kolor swiatla otoczenia
+                    { 0.5, 0.5,  0.5,  0.5 },       //diffuse  - kolor swiatla rozpraszanego
+                    { 0.5, 0.5,  0.5,  0.5 },       //specular - kolor swiatla odbijanego
+                    { 0.0, 20.0, 40.0, 1.0 }        //position
+                };
+
+    materials[0] = {    { 0.0,  0.0,  0.0,  0.0  }, //emission  -
+                        { 0.0,  0.0,  0.0,  0.0  }, //ambient   - kolor swiatla otoczenia
+                        { 1.0,  1.0,  1.0,  1.0  }, //diffuse   - kolor swiatla rozpraszanego
+                        { 0.01, 0.01, 0.01, 0.01 }, //specular  - kolor swiatla odbijanego
+                        200.0                       //shininess   - polysk
                 };
     onInit();
 }
@@ -138,7 +119,7 @@ void World::onLoop() {
         camera.setYPos(camera.getBaselineY() + 0.3*sin(headParam += 0.1f));
     }
 
-    camera.writeCoordinates();
+    //camera.writeCoordinates();
 }
 
 void World::onRender() {
@@ -163,7 +144,6 @@ bool World::isCollision(float xShift, float zShift) const {
         return false;
 
     Color c = collisionMap.getPixel(imageCoordX, imageCoordZ);
-    //cout << "imageCoordX: " << imageCoordX << "\t\timageCoordZ: " << imageCoordZ << "\n";
     return !c.r;
 }
 
