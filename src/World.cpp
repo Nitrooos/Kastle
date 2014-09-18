@@ -34,9 +34,11 @@ World::World(GraphicsManager *gm) : grMananger(gm) {
                      );
     objects.push_back(Entity{grMananger->getBuffer(ObjectType::Doors),
                              grMananger->getShader(ShaderType::Standard2),
-                             -4.95, 0.6, 70.5,
+                             -2.1, 0.6, 70.5,
                              grMananger->getTexture(TextureType::Red)}
                      );
+    objects.back().setAngle(-180.0f);
+
     objects.push_back(Entity{grMananger->getBuffer(ObjectType::Doors),
                              grMananger->getShader(ShaderType::Standard2),
                              -7.9, 0.6, 70.5,
@@ -163,7 +165,7 @@ void World::checkAction() {
     if (distFromTeleoport1 < 5.0f || distFromTeleoport2 < 5.0f)
         teleport();
     if (distFromDoors < 5.0f)
-        openDoors();
+        doorsAction();
 }
 
 void World::teleport() {
@@ -178,8 +180,10 @@ void World::teleport() {
     }
 }
 
-void World::openDoors() {
-    float dir = -1.0f;
+void World::doorsAction() {
+    static float dir = 1.0f;
+    dir *= -1;
+
     for (auto &o : objects) {
         if (abs(o.getX() + 6.5) < 5.0f && o.getZ() == 70.5f ) {
             Animation anim(o);

@@ -25,9 +25,9 @@ class Entity {
         void roll(double rotAngle);
         void setAngle(double angle);
 
-        float getX() { return x; }
-        float getY() { return y; }
-        float getZ() { return z; }
+        float getX() const { return x; }
+        float getY() const { return y; }
+        float getZ() const { return z; }
     private:
         void updateMatrixM();
 

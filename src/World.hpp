@@ -31,7 +31,7 @@ class World {
         bool isCollision(float xShift, float zShift) const;       // czy na nowych wsp camery wystąpi kolizja z obiektem?
         void checkAction();
         void teleport();
-        void openDoors();
+        void doorsAction();
 
         GraphicsManager *grMananger;            // manager obiektów rysowanych na scenie
         vector<Entity> objects;                 // obiekty należące do świata
