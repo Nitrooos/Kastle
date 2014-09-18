@@ -14,6 +14,6 @@ void Animation::animate() {
         status = Status::Stop;
 }
 
-Status Animation::getStatus() {
+Animation::Status Animation::getStatus() const {
     return status;
 }

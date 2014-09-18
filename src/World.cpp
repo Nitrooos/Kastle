@@ -112,7 +112,7 @@ void World::onLoop() {
     for (auto &a : animations) {
         a.animate();
     }
-    animations.remove_if([]() { return (getStatus() == Animation::Status::Stop); });
+    animations.remove_if([](const Animation &v) { return (v.getStatus() == Animation::Status::Stop); });
 
     float xShift = -camera.getZShift(this->go) + camera.getXShift(this->side),
           yShift = this->height,
@@ -158,7 +158,7 @@ bool World::isCollision(float xShift, float zShift) const {
 void World::checkAction() {
     float distFromTeleoport1 = sqrt(pow(camera.getX() + 36, 2) + pow(camera.getZ() - 120, 2)),
           distFromTeleoport2 = sqrt(pow(camera.getX() - 30, 2) + pow(camera.getZ() - 120, 2)),
-          distFromDoors = sqrt(pow(camera.getX(), 2) + pow(camera.getZ() - 70, 2));
+          distFromDoors = sqrt(pow(camera.getX(), 2) + pow(camera.getZ() - 80, 2));
 
     if (distFromTeleoport1 < 5.0f || distFromTeleoport2 < 5.0f)
         teleport();

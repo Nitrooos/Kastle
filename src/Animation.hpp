@@ -33,7 +33,7 @@ class Animation {
 
         void setParams(float rollAngle, float stopAngle);
         void animate();
-        Status getStatus();
+        Status getStatus() const;
     private:
         Entity &object;
         float rollAngle{0.0f},
