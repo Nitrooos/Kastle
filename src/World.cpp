@@ -100,12 +100,15 @@ void World::onMouseEvent(const Vector2<int> &pos) {
 }
 
 void World::onLoop() {
-    if (this->rotateObjects) {
+    /*if (this->rotateObjects) {
         float angle = 0.1f;
         for (auto &x : objects) {
             x.roll(angle);
             angle *= -1;
         }
+    }*/
+    if (this->rotateObjects) {
+        objects.back().roll(0.8f);
     }
 
     float xShift = -camera.getZShift(this->go) + camera.getXShift(this->side),
