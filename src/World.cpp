@@ -160,7 +160,7 @@ bool World::isCollision(float xShift, float zShift) const {
 void World::checkAction() {
     float distFromTeleoport1 = sqrt(pow(camera.getX() + 36, 2) + pow(camera.getZ() - 120, 2)),
           distFromTeleoport2 = sqrt(pow(camera.getX() - 30, 2) + pow(camera.getZ() - 120, 2)),
-          distFromDoors = sqrt(pow(camera.getX() + 5, 2) + pow(camera.getZ() - 75, 2));
+          distFromDoors = sqrt(pow(camera.getX() + 5, 2) + pow(camera.getZ() - 71, 2));
 
     if (distFromTeleoport1 < 5.0f || distFromTeleoport2 < 5.0f)
         teleport();
@@ -181,7 +181,7 @@ void World::teleport() {
 }
 
 void World::doorsAction() {
-    static float dir = 1.0f;
+    static float dir = -1.0f;
     dir *= -1;
 
     for (auto &o : objects) {
