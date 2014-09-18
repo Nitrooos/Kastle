@@ -6,7 +6,7 @@ void main()
     gl_FragColor = gl_Color;
 }
 */
-    
+
 
 out vec4 pixelColor; //Zmienna wyjsciowa fragment shadera. Zapisuje sie do niej ostateczny (prawie) kolor piksela
 
@@ -17,10 +17,6 @@ in vec4 v;
 uniform sampler2D textureMap0, textureMap1;
 in vec2 iTexCoord;
 in vec2 iTexCoord2;
-uniform vec4 dragi1; 
-uniform vec4 dragi2;
-uniform vec4 dragi3;
-uniform float polysk;
 
 uniform vec4 Light0ambient;
 uniform vec4 Light0diffuse;

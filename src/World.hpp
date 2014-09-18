@@ -23,7 +23,6 @@ class World {
         void onMouseEvent(const Vector2<int> &pos);
         void onLoop();
         void onRender();
-        bool drugs{false};
     private:
         // akt stworzenia
         void onInit();
