@@ -110,9 +110,9 @@ void World::onLoop() {
 
     // Odegraj wszystkie animacje obiektów
     for (auto &a : animations) {
-        if (a.animate() == Animation::Stop)
-            animations.erase(a);
+        a.animate();
     }
+    animations.remove_if([]() { return (getStatus() == Animation::Status::Stop); });
 
     float xShift = -camera.getZShift(this->go) + camera.getXShift(this->side),
           yShift = this->height,
